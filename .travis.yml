@@ -13,9 +13,9 @@ addons:
      - g++-7
 before_install:
  - eval "CC=gcc-7 && CXX=g++-7"
- - sudo add-apt-repository ppa:fcitx-team/toolchain
- - sudo apt-get update
- - sudo apt-get install extra-cmake-modules
+ - sudo add-apt-repository ppa:fcitx-team/toolchain -y
+ - sudo apt-get update -y
+ - sudo apt-get install -y extra-cmake-modules
 script:
  - 
  - mkdir build
