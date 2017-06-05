@@ -11,10 +11,13 @@ addons:
     packages:
      - libsdl2-dev
      - g++-7
-     - extra-cmake-modules
 before_install:
-    - eval "CC=gcc-7 && CXX=g++-7"
+ - eval "CC=gcc-7 && CXX=g++-7"
+ - sudo add-apt-repository ppa:fcitx-team/toolchain
+ - sudo apt-get update
+ - sudo apt-get install extra-cmake-modules
 script:
+ - 
  - mkdir build
  - cd build
  - cmake .. -DCMAKE_CXX_FLAGS='-Wall'
