@@ -21,5 +21,8 @@ script:
  - cmake .. -DCMAKE_CXX_FLAGS='-Wall' -DSDL_DIR=/usr/
  - make -j8
 deploy:
+  provider: pages
   skip_cleanup: true
-
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
