@@ -14,7 +14,8 @@ addons:
 before_install:
  - eval "CC=gcc-7 && CXX=g++-7"
 script:
- - install sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
+ - sudo mkdir -p /usr/lib/cmake/SDL2/
+ - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
  - mkdir build
  - cd build
  - cmake .. -DCMAKE_CXX_FLAGS='-Wall' -DSDL_DIR=/usr/
