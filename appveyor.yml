@@ -1,0 +1,15 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+platform: x64
+before_build:
+- cmd: appveyor_before_build.bat
+build:
+  project: build64/zxtk.sln
+  parallel: true
+  verbosity: normal
+clone_folder: c:\projects\zxtk
+test_script:
+artifacts:
+- path: build64/bin/zxtk
+  name: zxtk
