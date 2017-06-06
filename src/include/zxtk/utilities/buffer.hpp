@@ -48,7 +48,7 @@ namespace zxtk                                              // Should this be in
         class Buffer_store {
         public:
             template<typename T,L>
-            friend Buffer_client;
+            friend class Buffer_client;
             using tick_type = L;
             // Note the absence of usual stuff like value_type TODO: Make a class Buffer_timepoint for giving data to things that don't know about timing
             constexpr static L max_tick_diff = std::numeric_limits<L>::max()/2;
