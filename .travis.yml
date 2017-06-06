@@ -28,7 +28,7 @@ script:
  - cd ..
  - mkdir zxtk
  - cd zxtk
- - tar cjvf zxtk.tar.gz ../install
+ - tar cjvf zxtk_amd64.tar.gz ../install
 deploy:
   provider: pages
   skip_cleanup: true
