@@ -40,14 +40,14 @@ namespace zxtk                                              // Should this be in
             int priority;                                           // Lower priorities will be used first
         };
 
-        template <typename T, typename L>
-            class Buffer_client;
+//        template <typename T, typename L>
+//            class Buffer_client;
 
         template <typename T, std::size_t N, typename C = std::array<T,N>,bool O = true,
         typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
         class Buffer_store {
         public:
-            template<typename T,L>
+            template<typename T, typename L>
             friend class Buffer_client;
             using tick_type = L;
             // Note the absence of usual stuff like value_type TODO: Make a class Buffer_timepoint for giving data to things that don't know about timing
