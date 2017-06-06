@@ -33,7 +33,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  repo: icecream95.github.io
+  repo: icecream95/icecream95.github.io
   target_branch: master
   on:
     branch: master
