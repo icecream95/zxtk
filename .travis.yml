@@ -25,12 +25,13 @@ script:
  - cp zxtk ../install/bin
  - mkdir ../install/lib
  - cp libload.a libmemory.a ../install/lib
- - cd ../install
- - tar cjvf zxtk.tar.gz install
+ - cd ..
+ - mkdir zxtk
+ - cd zxtk
+ - tar cjvf zxtk.tar.gz ../install
 deploy:
   provider: pages
   skip_cleanup: true
-  file: "zxtk.tar.gz"
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
