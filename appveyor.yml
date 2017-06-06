@@ -11,5 +11,5 @@ build:
 clone_folder: c:\projects\zxtk
 test_script:
 artifacts:
-- path: build64/zxtk
+- path: build64/Release/zxtk.exe
   name: zxtk
