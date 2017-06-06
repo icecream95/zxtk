@@ -40,9 +40,6 @@ namespace zxtk                                              // Should this be in
             int priority;                                           // Lower priorities will be used first
         };
 
-//        template <typename T, typename L>
-//            class Buffer_client;
-
         template <typename T, std::size_t N, typename C = std::array<T,N>,bool O = true,
         typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
         class Buffer_store {
