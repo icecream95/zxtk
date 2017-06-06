@@ -18,7 +18,7 @@ script:
  - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
  - mkdir build
  - cd build
- - cmake .. -DCMAKE_CXX_FLAGS='-Wall --static' -DSDL_DIR=/usr/
+ - cmake .. -DCMAKE_CXX_FLAGS='-Wall --static'
  - make -j8
  - mkdir ../install
  - mkdir ../install/bin
