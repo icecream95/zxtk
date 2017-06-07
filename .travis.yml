@@ -20,21 +20,6 @@ matrix:
         - DO_DEPLOY="y"
     - os: linux
       compiler:
-        - gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - libsdl2-dev
-            - g++-4.9
-      env:
-        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
-        - COMPILER_ID="gcc-4.9"
-        - SET_CMAKE_CXX_FLAGS='-Wall -std=c++11'
-        - DO_DEPLOY="n"
-    - os: linux
-      compiler:
         - clang
       addons:
         apt:
@@ -48,6 +33,21 @@ matrix:
         - COMPILER_ID="clang"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z'
         - DO_DEPLOY="y"
+    - os: linux
+      compiler:
+        - gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - libsdl2-dev
+            - g++-4.9
+      env:
+        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+        - COMPILER_ID="gcc-4.9"
+        - SET_CMAKE_CXX_FLAGS='-Wall -std=c++11'
+        - DO_DEPLOY="n"
     - os: linux
       compiler:
         - clang
