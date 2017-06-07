@@ -5,10 +5,10 @@ using namespace std;
 
 int main()
 {
-    bool good = buffer_test();
-    if(good)
-        cout << "Tests completed\n";
-    else
+    bool bad = !buffer_test();
+    if(bad)
         cout << "Tests failed!\n";
-    return good;
+    else
+        cout << "Tests completed\n";
+    return bad;
 }
