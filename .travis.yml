@@ -15,6 +15,7 @@ matrix:
             - g++-7
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - COMPILER_ID="gcc"
     - os: linux
       compiler:
         - clang
@@ -27,7 +28,7 @@ matrix:
             - libsdl2-dev
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-        - CMAKE_CXX_FLAGS="-std=c++11"
+        - COMPILER_ID="clang"
 
 env:
   global:
@@ -65,6 +66,6 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   repo: icecream95/icecream95.github.io
-  target_branch: zxtk-linux-amd64
+  target_branch: zxtk-linux-amd64-$COMPILER_ID
   on:
     branch: master
