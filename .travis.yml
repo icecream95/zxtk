@@ -26,7 +26,7 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-    
+
 env:
   global:
     - secure: "pHIDW4SoaQimekPWqx8zdDzaWQng4j0AQA0Os8Cvxq0lUnMr5+LPdKKftK89BQTBQ8QZTXL+p9qH84Liy7wvUd14F5zOx58f3FjS+/apIN337uqIUqKMQ5WTYFLkhTmiKshd0QZ1vZeafsoM5ixPCVmPuDrzswHA8lmeHDMJyGfFzuavM/z4xibSxvUUpPI08M/291YAIHyuoYR1h3B5u9xF20jNSc08X1LKNibrzlHi0wNxISVqN2hbzwF7BNodhWjQZbEUl8mhjCw6WMRLb0EF2ko0tfHR00LWx2SkYgDjWvyH2o0guklYO1xYZyMNK2fwp2LMnYs/BLH+Mubx58uCj30+37DSCufAOoW/GmNz9cCLAHE5N7g/MIVga0pVmXg84W8FPLrppUHdBMz0r1a6R6YRAKNra/BO85BfBMdui1ZyheeLVOjx+Wmmx5DNit7vBCZdBJMUP3Hgfn3an62iT6TbAN9durVMWVpiPGWNDWjJKZd0dBTWpWwuPZ/tsmSAvvZ8gi0f5m93B+fBXabyhJDgV2W8GJHdrawfPsFErtIPe0lOzBqsiO0xZJ87H6Gaqcr5maHU9E0uLxnOEvjOAZd2hOz+OnF76nTFkKqEZ1j/ZxDumCD1iCWW3D2+tmXPVv4iwSf3Xt1qmzY1Wt90pf2cvXebX/jC4mbszUo="
@@ -39,7 +39,7 @@ addons:
       name: "icecream95/zxtk"
       description: "Build submitted via Travis CI"
     build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p 
-build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall --static' && make clean"
+build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall' && make clean"
     build_command:   "make -j4"
     branch_pattern: coverity_scan
 script:
