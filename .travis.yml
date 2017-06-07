@@ -31,7 +31,6 @@ build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall --static' -DSDL_DIR=/usr/
     build_command:   "make -j4"
     branch_pattern: coverity_scan
 script:
-<<<<<<< HEAD
   - sudo mkdir -p /usr/lib/cmake/SDL2/
   - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
   - mkdir -p build
