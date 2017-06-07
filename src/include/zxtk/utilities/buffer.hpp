@@ -2,14 +2,14 @@
 // Buffered storage module for zxtk
 
 #ifndef ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
-# define ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
+#define ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
 
-# include <array>
-# include <queue>
-# include <limits>
-# include <utility>
-# include <zxtk/misc/zxtk_types.hpp>
-# include <zxtk/utilities/utilities.hpp>
+#include <array>
+#include <queue>
+#include <limits>
+#include <utility>
+#include <zxtk/misc/zxtk_types.hpp>
+#include <zxtk/utilities/utilities.hpp>
 
 namespace zxtk                                              // Should this be in here?
 {

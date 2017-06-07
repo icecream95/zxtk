@@ -47,3 +47,7 @@ add_library(memory src/utilities/buffer.cpp)
 add_executable(zxtk src/zxtk.cpp)
 
 target_link_libraries (zxtk memory load)
+
+add_executable(tests src/tests.cpp)
+
+target_link_libraries (tests memory)
