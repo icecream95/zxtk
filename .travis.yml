@@ -20,8 +20,7 @@ env:
     - secure: "pHIDW4SoaQimekPWqx8zdDzaWQng4j0AQA0Os8Cvxq0lUnMr5+LPdKKftK89BQTBQ8QZTXL+p9qH84Liy7wvUd14F5zOx58f3FjS+/apIN337uqIUqKMQ5WTYFLkhTmiKshd0QZ1vZeafsoM5ixPCVmPuDrzswHA8lmeHDMJyGfFzuavM/z4xibSxvUUpPI08M/291YAIHyuoYR1h3B5u9xF20jNSc08X1LKNibrzlHi0wNxISVqN2hbzwF7BNodhWjQZbEUl8mhjCw6WMRLb0EF2ko0tfHR00LWx2SkYgDjWvyH2o0guklYO1xYZyMNK2fwp2LMnYs/BLH+Mubx58uCj30+37DSCufAOoW/GmNz9cCLAHE5N7g/MIVga0pVmXg84W8FPLrppUHdBMz0r1a6R6YRAKNra/BO85BfBMdui1ZyheeLVOjx+Wmmx5DNit7vBCZdBJMUP3Hgfn3an62iT6TbAN9durVMWVpiPGWNDWjJKZd0dBTWpWwuPZ/tsmSAvvZ8gi0f5m93B+fBXabyhJDgV2W8GJHdrawfPsFErtIPe0lOzBqsiO0xZJ87H6Gaqcr5maHU9E0uLxnOEvjOAZd2hOz+OnF76nTFkKqEZ1j/ZxDumCD1iCWW3D2+tmXPVv4iwSf3Xt1qmzY1Wt90pf2cvXebX/jC4mbszUo="
 before_install:
   - eval $MATRIX_EVAL
-  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a 
-/etc/ssl/certs/ca-
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 addons:
   coverity_scan:
     project:
@@ -32,6 +31,7 @@ build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall --static' -DSDL_DIR=/usr/
     build_command:   "make -j4"
     branch_pattern: coverity_scan
 script:
+<<<<<<< HEAD
   - sudo mkdir -p /usr/lib/cmake/SDL2/
   - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
   - mkdir -p build
@@ -47,6 +47,23 @@ script:
   - mkdir zxtk
   - cd zxtk
   - tar cjvf zxtk_amd64.tar.gz ../install
+=======
+ - sudo mkdir -p /usr/lib/cmake/SDL2/
+ - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
+ - mkdir build
+ - cd build
+ - cmake .. -DCMAKE_CXX_FLAGS='-Wall --static'
+ - make -j8
+ - mkdir ../install
+ - mkdir ../install/bin
+ - cp zxtk ../install/bin
+ - mkdir ../install/lib
+ - cp libload.a libmemory.a ../install/lib
+ - cd ..
+ - mkdir zxtk
+ - cd zxtk
+ - tar cjvf zxtk_amd64.tar.gz ../install
+>>>>>>> 44462f8562d51611eb09c5265a4f166b5a355756
 deploy:
   provider: pages
   skip_cleanup: true
