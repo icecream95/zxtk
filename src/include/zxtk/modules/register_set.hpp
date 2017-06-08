@@ -1,6 +1,7 @@
 #ifndef ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 #define ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 
+#include <utility>
 #include <zxtk/misc/zxtk_types.hpp>
 
 namespace zxtk
@@ -35,12 +36,44 @@ namespace zxtk
             void l(types::byte n) {st_hl = (st_hl & 65280) + n;}
             void ixl(types::byte n) {st_ix = (st_ix & 65280) + n;}
             void ixy(types::byte n) {st_iy = (st_iy & 65280) + n;}
+            types::word af() const {return st_af;}
+            types::word bc() const {return st_bc;}
+            types::word de() const {return st_de;}
+            types::word hl() const {return st_hl;}
+            types::word ix() const {return st_ix;}
+            types::word iy() const {return st_iy;}
+            void af(types::word n) {st_af=n;}
+            void bc(types::word n) {st_bc=n;}
+            void de(types::word n) {st_de=n;}
+            void hl(types::word n) {st_hl=n;}
+            void ix(types::word n) {st_ix=n;}
+            void iy(types::word n) {st_iy=n;}
+            types::word pc() const {return st_pc;}
+            types::word sp() const {return st_sp;}
+            types::word pc(types::word n) {st_pc=n;}
+            types::word sp(types::word n) {st_sp=n;}
+            types::word ex_af(types::word n) {return std::exchange(st_af,n);}
+            types::word ex_bc(types::word n) {return std::exchange(st_bc,n);}
+            types::word ex_de(types::word n) {return std::exchange(st_de,n);}
+            types::word ex_hl(types::word n) {return std::exchange(st_hl,n);}
+            types::word ex_ix(types::word n) {return std::exchange(st_ix,n);}
+            types::word ex_iy(types::word n) {return std::exchange(st_iy,n);}
+            types::word ex_pc(types::word n) {return std::exchange(st_pc,n);}
+            types::word ex_sp(types::word n) {return std::exchange(st_sp,n);}
+            void ex_af_af() {std::swap(st_af,sta_af);}
+            void exx() {std::swap(st_bc,sta_bc);std::swap(st_de,sta_de);std::swap(st_hl,sta_hl);}
+            void ex_de_hl() {std::swap(st_de,st_hl);}
         private:
             types::word st_af;
             types::word st_bc;
             types::word st_de;
             types::word st_hl;
+            types::word sta_af;
+            types::word sta_bc;
+            types::word sta_de;
+            types::word sta_hl;
             types::word st_pc;
+            types::word st_sp;
             types::word st_ix;
             types::word st_iy;
         };
