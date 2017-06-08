@@ -1,0 +1,6 @@
+#ifndef ZXTK_REGISTER_TEST_INCLUDE_GUARD
+#define ZXTK_REGISTER_TEST_INCLUDE_GUARD
+
+#include <iostream>
+
+#endif
