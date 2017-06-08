@@ -84,9 +84,9 @@ script:
   - ./tests
   - mkdir ../install
   - mkdir ../install/bin
-  - cp zxtk ../install/bin
+  - cp zxtk tests ../install/bin
   - mkdir ../install/lib
-  - cp libload.a libmemory.a ../install/lib
+  - cp libload.a libmemory.a libcpu.a ../install/lib
   - cd ..
   - mkdir zxtk
   - cd zxtk
