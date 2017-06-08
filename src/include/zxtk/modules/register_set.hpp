@@ -1,8 +1,9 @@
 #ifndef ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 #define ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 
-#include <utility>
+#include <zxtk/utilities/exchange.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
+#include <utility>
 
 namespace zxtk
 {
@@ -52,14 +53,14 @@ namespace zxtk
             types::word sp() const {return st_sp;}
             void pc(types::word n) {st_pc=n;}
             void sp(types::word n) {st_sp=n;}
-            types::word ex_af(types::word n) {return std::exchange(st_af,n);}
-            types::word ex_bc(types::word n) {return std::exchange(st_bc,n);}
-            types::word ex_de(types::word n) {return std::exchange(st_de,n);}
-            types::word ex_hl(types::word n) {return std::exchange(st_hl,n);}
-            types::word ex_ix(types::word n) {return std::exchange(st_ix,n);}
-            types::word ex_iy(types::word n) {return std::exchange(st_iy,n);}
-            types::word ex_pc(types::word n) {return std::exchange(st_pc,n);}
-            types::word ex_sp(types::word n) {return std::exchange(st_sp,n);}
+            types::word ex_af(types::word n) {return exchange(st_af,n);}
+            types::word ex_bc(types::word n) {return exchange(st_bc,n);}
+            types::word ex_de(types::word n) {return exchange(st_de,n);}
+            types::word ex_hl(types::word n) {return exchange(st_hl,n);}
+            types::word ex_ix(types::word n) {return exchange(st_ix,n);}
+            types::word ex_iy(types::word n) {return exchange(st_iy,n);}
+            types::word ex_pc(types::word n) {return exchange(st_pc,n);}
+            types::word ex_sp(types::word n) {return exchange(st_sp,n);}
             void ex_af_af() {std::swap(st_af,sta_af);}
             void exx() {std::swap(st_bc,sta_bc);std::swap(st_de,sta_de);std::swap(st_hl,sta_hl);}
             void ex_de_hl() {std::swap(st_de,st_hl);}

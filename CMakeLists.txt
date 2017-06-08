@@ -28,6 +28,7 @@ endif ()
 # This might seem a bit weird, but the chance of someone not wanting SDL at the moment is pretty low
 
 set(ZXTK_VERSION "${ZXTK_VERSION_MAJOR}.${ZXTK_VERSION_MINOR}.${ZXTK_VERSION_UPDATE}")
+
 configure_file (
   "${PROJECT_SOURCE_DIR}/src/include/zxtk/misc/zxtk_config.hpp.in"
   "${PROJECT_BINARY_DIR}/src/include/zxtk/misc/zxtk_config.hpp"
@@ -38,6 +39,10 @@ configure_file (
   "${PROJECT_BINARY_DIR}/src/include/zxtk/misc/zxtk_types.hpp"
   )
 
+configure_file (
+  "${PROJECT_SOURCE_DIR}/src/include/zxtk/misc/zxtk_info.hpp.in"
+  "${PROJECT_BINARY_DIR}/src/include/zxtk/misc/zxtk_info.hpp"
+  )
 include_directories("${PROJECT_BINARY_DIR}/src/include")
 include_directories ("${PROJECT_SOURCE_DIR}/src/include")
 
