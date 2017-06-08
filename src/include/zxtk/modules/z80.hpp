@@ -5,7 +5,7 @@ namespace zxtk
 {
     namespace cpu
     {
-        class z80
+        class Z80
         {
         public:
             

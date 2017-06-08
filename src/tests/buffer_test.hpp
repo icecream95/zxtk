@@ -9,8 +9,9 @@ using namespace std;
 
 bool buffer_test()
 {
-    zxtk::buffer::Buffer_store<uint8_t,1024> test;
+    zxtk::buffer::Buffer_store<zxtk::types::byte,1024> test;
     cout << "Created buffer\n";
+    // ...
     return true;
 }
 

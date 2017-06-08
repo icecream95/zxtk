@@ -9,9 +9,11 @@ namespace zxtk
 {
     namespace register_set
     {
-        class z80_register_set
+        class Z80_register_set
         {
         public:
+            Z80_register_set():st_pc{types::word{}} {}
+            bool operator==(const Z80_register_set& s) const {return st_af==s.st_af&&st_bc==s.st_bc&&st_de==s.st_de&&st_hl==s.st_hl&&sta_af==s.sta_af&&sta_bc==s.sta_bc&&sta_de==s.sta_de&&sta_hl==s.sta_hl&&st_ix==s.st_ix&&st_iy==s.st_iy&&st_pc==s.st_pc&&st_sp==s.st_pc&&st_r==s.st_r&&st_i==s.st_i;}
             // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte a() const {return st_af >> 8;}
             types::byte b() const {return st_bc >> 8;}
@@ -64,6 +66,10 @@ namespace zxtk
             void ex_af_af() {std::swap(st_af,sta_af);}
             void exx() {std::swap(st_bc,sta_bc);std::swap(st_de,sta_de);std::swap(st_hl,sta_hl);}
             void ex_de_hl() {std::swap(st_de,st_hl);}
+            types::byte r() {return st_r;}
+            types::byte i() {return st_i;}
+            void r(types::byte n) {st_r=n;}
+            void i(types::byte n) {st_i=n;}
         private:
             types::word st_af;
             types::word st_bc;
@@ -77,6 +83,8 @@ namespace zxtk
             types::word st_sp;
             types::word st_ix;
             types::word st_iy;
+            types::byte st_r;
+            types::byte st_i;
         };
     }
 }
