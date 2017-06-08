@@ -50,8 +50,8 @@ namespace zxtk
             void iy(types::word n) {st_iy=n;}
             types::word pc() const {return st_pc;}
             types::word sp() const {return st_sp;}
-            types::word pc(types::word n) {st_pc=n;}
-            types::word sp(types::word n) {st_sp=n;}
+            void pc(types::word n) {st_pc=n;}
+            void sp(types::word n) {st_sp=n;}
             types::word ex_af(types::word n) {return std::exchange(st_af,n);}
             types::word ex_bc(types::word n) {return std::exchange(st_bc,n);}
             types::word ex_de(types::word n) {return std::exchange(st_de,n);}
