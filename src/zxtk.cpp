@@ -2,6 +2,7 @@
 #include <zxtk/misc/zxtk_config.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/utilities/buffer.hpp>
+#include <zxtk/modules/register_set.hpp>
 #include <zxtk/load.hpp>
 
 int main ()

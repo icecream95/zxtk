@@ -8,7 +8,6 @@
 #define ZXTK_VERSION_MAJOR @ZXTK_VERSION_MAJOR@
 #define ZXTK_VERSION_MINOR @ZXTK_VERSION_MINOR@
 #define ZXTK_VERSION_UPDATE @ZXTK_VERSION_UPDATE@
-#define ZXTK_VERSION_RELEASE @ZXTK_VERSION_RELEASE@
 #define ZXTK_VERSION "@ZXTK_VERSION@"
 
 namespace zxtk
@@ -18,7 +17,6 @@ namespace zxtk
         constexpr int major = @ZXTK_VERSION_MAJOR@;
         constexpr int minor = @ZXTK_VERSION_MINOR@;
         constexpr int update = @ZXTK_VERSION_UPDATE@;
-        constexpr int release = @ZXTK_VERSION_RELEASE@;
         const std::string version = "@ZXTK_VERSION@";
     }
 }

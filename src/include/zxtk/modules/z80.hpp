@@ -3,7 +3,14 @@
 
 namespace zxtk
 {
-    namespace z80
+    namespace cpu
+    {
+        class z80
+        {
+        public:
+            
+        };
+    }
 }
 
 #endif

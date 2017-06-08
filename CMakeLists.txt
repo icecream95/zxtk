@@ -3,11 +3,11 @@ project (zxtk)
 message(STATUS "Configuring zxtk...")
 
 set (ZXTK_VERSION_MAJOR 0)
-set (ZXTK_VERSION_MINOR 1)
+set (ZXTK_VERSION_MINOR 0)
 set (ZXTK_VERSION_UPDATE 0)
-set (ZXTK_VERSION_RELEASE 1)
 
 set (ZXTK_TYPES_BYTE "uint8_t" CACHE STRING "The type of a byte. It is very unlikely you will want to change this (uint8_t)")
+set (ZXTK_TYPES_WORD "uint16_t" CACHE STRING "The type of a word. It is very unlikely you will want to change this (uint16_t)")
 set (ZXTK_TYPES_POINTER "uintptr_t" CACHE STRING "The type of an address (all memory, not z80) (uintptr_t)")
 # Probably should make a way to set these without having to edit the CMakeLists
 
@@ -27,7 +27,7 @@ if (USE_SDL)
 endif ()
 # This might seem a bit weird, but the chance of someone not wanting SDL at the moment is pretty low
 
-set(ZXTK_VERSION "${ZXTK_VERSION_MAJOR}.${ZXTK_VERSION_MINOR}.${ZXTK_VERSION_UPDATE}\(r${ZXTK_VERSION_RELEASE}\)")
+set(ZXTK_VERSION "${ZXTK_VERSION_MAJOR}.${ZXTK_VERSION_MINOR}.${ZXTK_VERSION_UPDATE}")
 configure_file (
   "${PROJECT_SOURCE_DIR}/src/include/zxtk/misc/zxtk_config.hpp.in"
   "${PROJECT_BINARY_DIR}/src/include/zxtk/misc/zxtk_config.hpp"
@@ -43,10 +43,11 @@ include_directories ("${PROJECT_SOURCE_DIR}/src/include")
 
 add_library(load src/${LOAD_FILE})
 add_library(memory src/utilities/buffer.cpp)
+add_library(cpu src/modules/z80.cpp)
 
 add_executable(zxtk src/zxtk.cpp)
 
-target_link_libraries (zxtk memory load)
+target_link_libraries (zxtk memory load cpu)
 
 add_executable(tests src/tests.cpp)
 
