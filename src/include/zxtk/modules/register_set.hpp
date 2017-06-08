@@ -9,6 +9,9 @@ namespace zxtk
 {
     namespace register_set
     {
+        #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+        // Z80 registers are not initialised so we need this pragma
+
         class Z80_register_set
         {
         public:
@@ -86,6 +89,7 @@ namespace zxtk
             types::byte st_r;
             types::byte st_i;
         };
+        #pragma GCC diagnostic warning "-Wmaybe-uninitialized"
     }
 }
 
