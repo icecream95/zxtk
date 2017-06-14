@@ -8,6 +8,6 @@ git submodule update
 IF NOT EXIST install md install
 IF NOT EXIST build64 md build64
 cd build64
-cmake -G "Visual Studio 15 2017 Win64" -DUSE_SDL=OFF -DCMAKE_BUILD_DIR=..\install ..
+cmake -G "Visual Studio 15 2017 Win64" -DUSE_SDL=OFF -DCMAKE_INSTALL_PREFIX="..\install" ..
 rem NOTE: REMOVE -DUSE_SDL=OFF when I work out how to get SDL
 cd ..
