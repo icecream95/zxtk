@@ -1,0 +1,6 @@
+#ifndef ZXTK_MISC_OPTIONS_INCLUDE_GUARD
+#define ZXTK_MISC_OPTIONS_INCLUDE_GUARD
+
+#include <type_traits>
+
+#endif
