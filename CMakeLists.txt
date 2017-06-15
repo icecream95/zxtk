@@ -23,6 +23,8 @@ option(USE_SDL "Enable graphical display of emulation using SDL (on)" TRUE)
 option(SDL2_STATIC "Link static build of SDL into the binaries" FALSE)
 # At some point, I will probably want to make the SDL2_STATIC option only appear if SDL is enabled
 
+option(STATIC "Build zxtk libraries as static libraries" FALSE)
+
 option(COMPILE_TESTS "Compile tests" TRUE)
 
 set (ZXTK_USING_SDL_TRUE 0)
@@ -65,9 +67,15 @@ configure_file (
 include_directories("${PROJECT_BINARY_DIR}/src/include")
 include_directories ("${PROJECT_SOURCE_DIR}/src/include")
 
+if (STATIC)
+add_library(load src/${LOAD_FILE})
+add_library(memory src/utilities/buffer.cpp)
+add_library(cpu src/modules/z80.cpp)
+else ()
 add_library(load SHARED src/${LOAD_FILE})
 add_library(memory SHARED src/utilities/buffer.cpp)
 add_library(cpu SHARED src/modules/z80.cpp)
+endif ()
 
 add_executable(zxtk src/zxtk.cpp)
 
