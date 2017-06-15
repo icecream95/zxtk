@@ -83,12 +83,12 @@ script:
   - cd build
   - cmake .. -DCMAKE_CXX_FLAGS="${SET_CMAKE_CXX_FLAGS}" -DCMAKE_INSTALL_PREFIX='../install'
   - make -j8
-  - ./tests
   - make install
   - cd ..
   - mkdir zxtk
   - cd zxtk
   - tar cjvf zxtk_amd64.tar.gz ../install
+  - ../build/tests
 deploy:
   provider: pages
   skip_cleanup: true
