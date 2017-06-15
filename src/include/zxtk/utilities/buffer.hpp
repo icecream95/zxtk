@@ -2,14 +2,14 @@
 // Buffered storage module for zxtk
 
 #ifndef ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
-# define ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
+#define ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
 
-# include <array>
-# include <queue>
-# include <limits>
-# include <utility>
-# include <zxtk/misc/zxtk_types.hpp>
-# include <zxtk/utilities/utilities.hpp>
+#include <array>
+#include <queue>
+#include <limits>
+#include <utility>
+#include <zxtk/misc/zxtk_types.hpp>
+#include <zxtk/utilities/utilities.hpp>
 
 namespace zxtk                                              // Should this be in here?
 {
@@ -20,13 +20,13 @@ namespace zxtk                                              // Should this be in
         class Buf_access_info {
         public:
             template <typename N>
-            bool operator<(Buf_access_info<T,L,N>& b)
+            bool operator<(const Buf_access_info<T,L,N>& b) const
             {
                 return use_tick > b.use_tick || (use_tick == b.use_tick && priority > b.priority);
                 // Note the switch around - the earlier a Buf_access_info is going to be used, the higher the comparative value
             }
             template <typename N>
-            bool operator==(Buf_access_info<T,L,N>& b)
+            bool operator==(const Buf_access_info<T,L,N>& b) const
             {
                 return use_tick == b.use_tick && data == b.data && addr == b.addr && priority == b.priority;
                 // Should we test the priority here?
