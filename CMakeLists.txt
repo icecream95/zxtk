@@ -28,7 +28,7 @@ option(STATIC "Build zxtk libraries as static libraries" FALSE)
 option(GTEST_SHARED "Force building Google Test as a shared library" FALSE)
 
 if (GTEST_SHARED)
-    set (gtest_force_shared_crt 1)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 endif ()
 
 option(COMPILE_TESTS "Compile tests" TRUE)
