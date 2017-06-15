@@ -8,6 +8,8 @@ build:
   project: build64/zxtk.sln
   parallel: true
   verbosity: normal
+after_build:
+- cmd: cd build64 && cmake --build . --target install
 clone_folder: c:\projects\zxtk
 test_script: c:\projects\zxtk\build64\Release\tests.exe
 artifacts:
