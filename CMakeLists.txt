@@ -25,6 +25,12 @@ option(SDL2_STATIC "Link static build of SDL into the binaries" FALSE)
 
 option(STATIC "Build zxtk libraries as static libraries" FALSE)
 
+option(GTEST_SHARED "Force building Google Test as a shared library" FALSE)
+
+if (GTEST_SHARED)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+endif ()
+
 option(COMPILE_TESTS "Compile tests" TRUE)
 
 set (ZXTK_USING_SDL_TRUE 0)
