@@ -78,6 +78,7 @@ addons:
 build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean"
     build_command:   "make -j4"
     branch_pattern: coverity_scan
+    notification_email: nosuchaddress@example.com
     on:
       condition: $COVERITY_SCAN = "y"
 script:
