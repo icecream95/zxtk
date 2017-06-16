@@ -25,4 +25,8 @@ namespace zxtk
 #define ZXTK_USING_SDL_TRUE
 #endif
 
+#if @ZXTK_ENDIANNESS_CONST@ == 1
+#define ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
+#endif
+
 #endif
