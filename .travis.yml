@@ -77,6 +77,7 @@ matrix:
           packages:
             - libsdl2-dev
             - g++-7
+            - lcov
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
         - COMPILER_ID="gcc"
