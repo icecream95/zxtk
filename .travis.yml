@@ -120,10 +120,10 @@ script:
   - cd zxtk
   - tar cjvf zxtk_amd64.tar.gz ../install
   - ../build/tests
-  - if ["${CODE_COV}" == "y"];then ./get_code_cov && codecov;fi
+  - if ["${CODE_COV}" == "echo y"];then ./get_code_cov && codecov;fi
 after_success:
   # Codecov
-  - if ["${CODE_COV}" == "y"];then bash <(curl -s https://codecov.io/bash);fi
+  - if ["${CODE_COV}" == "echo y"];then bash <(curl -s https://codecov.io/bash);fi
 deploy:
   provider: pages
   skip_cleanup: true
