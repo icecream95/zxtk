@@ -120,10 +120,10 @@ script:
   - cd zxtk
   - tar cjvf zxtk_amd64.tar.gz ../install
   - ../build/tests
-  - if ["echo ${CODE_COV}" == "echo y"];then ./get_code_cov && codecov;fi
+  - if [ "${CODE_COV}" == "y" ];then ./get_code_cov && codecov;fi
 after_success:
   # Codecov
-  - if ["echo ${CODE_COV}" == "echo y"];then bash <(curl -s https://codecov.io/bash);fi
+  - if [ "${CODE_COV}" == "y" ];then cd ${TRAVIS_BUILD_DIR} && lcov --directory . --capture --output-file coverage.info && lcov --remove coverage.info '/usr/*' --output-file coverage.info && lcov --list coverage.info && bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";fi
 deploy:
   provider: pages
   skip_cleanup: true
