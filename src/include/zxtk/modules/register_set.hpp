@@ -90,7 +90,7 @@ namespace zxtk
             types::byte r() const {return st_r;}
             bool iff1() const {return st_iff1;}
             bool iff2() const {return st_iff2;}
-        private:
+        protected:
             types::word st_af;
             types::word st_bc;
             types::word st_de;
