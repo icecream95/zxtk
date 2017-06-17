@@ -18,12 +18,19 @@ matrix:
         - COMPILER_ID="gcc"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z'
         - DO_DEPLOY="y"
-        - COVERITY_SCAN="y"
         - CODE_COV="n"
     - os: linux
       compiler:
         - clang
       addons:
+        coverity_scan:
+          project:
+            name: "icecream95/zxtk"
+            description: "Build submitted via Travis CI"
+          notification_email: "nosuchaddress@example.com"
+          build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean"
+          build_command:   "make -j4"
+          branch_pattern: master
         apt:
           sources:
             - llvm-toolchain-trusty
@@ -35,7 +42,6 @@ matrix:
         - COMPILER_ID="clang"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z'
         - DO_DEPLOY="y"
-        - COVERITY_SCAN="n"
         - CODE_COV="n"
     - os: linux
       compiler:
@@ -50,7 +56,6 @@ matrix:
         - COMPILER_ID="gcc-4.8"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++11'
         - DO_DEPLOY="n"
-        - COVERITY_SCAN="n"
         - CODE_COV="n"
     - os: linux
       compiler:
@@ -65,7 +70,6 @@ matrix:
         - COMPILER_ID="clang-3.5"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++11'
         - DO_DEPLOY="n"
-        - COVERITY_SCAN="n"
         - CODE_COV="n"
     - os: linux
       compiler:
@@ -83,7 +87,6 @@ matrix:
         - COMPILER_ID="gcc"
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z -fprofile-arcs -ftest-coverage'
         - DO_DEPLOY="n"
-        - COVERITY_SCAN="n"
         - CODE_COV="y"
 env:
   global:
@@ -94,26 +97,6 @@ before_install:
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 # install:
 #  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
-#addons:
-#  coverity_scan:
-#    project:
-#      name: "icecream95/zxtk"
-#      description: "Build submitted via Travis CI"
-#    notification_email: "nosuchaddress@example.com"
-#    build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean"
-#    build_command:   "make -j4"
-#    branch_pattern: master
-addons:
-  coverity_scan:
-    project:
-      name: "icecream95/zxtk"
-      description: "Build submitted via Travis CI"
-    notification_email: nosuchemail@example.com
-    build_command_prepend: "./configure"
-    build_command: "make -j2"
-    branch_pattern: master
-#    on:
-#      condition: $COVERITY_SCAN = "y"
 script:
   - sudo mkdir -p /usr/lib/cmake/SDL2/
   - sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake
