@@ -1,4 +1,4 @@
-// zxtk/$BUILD/src/include/zxtk/misc/zxtk_confid.hpp
+// zxtk/$BUILD/src/include/zxtk/misc/zxtk_config.hpp
 
 #include <string>
 
