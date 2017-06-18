@@ -23,14 +23,6 @@ matrix:
       compiler:
         - clang
       addons:
-        coverity_scan:
-          project:
-            name: "icecream95/zxtk"
-            description: "Build submitted via Travis CI"
-          notification_email: "nosuchaddress@example.com"
-          build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean"
-          build_command:   "make -j4"
-          branch_pattern: coverity_scan
         apt:
           sources:
             - llvm-toolchain-trusty
@@ -43,7 +35,6 @@ matrix:
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z'
         - DO_DEPLOY="y"
         - CODE_COV="n"
-        - DEBUG_COMMAND="cat /home/travis/build/icecream95/zxtk/build/cov-int/scm_log.txt"
     - os: linux
       compiler:
         - gcc
@@ -76,6 +67,14 @@ matrix:
       compiler:
         - gcc
       addons:
+        coverity_scan:
+          project:
+            name: "icecream95/zxtk"
+            description: "Build submitted via Travis CI"
+          notification_email: "nosuchaddress@example.com"
+          build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean && cov-configure --comptype gcc --compiler gcc-7 --template"
+          build_command:   "make -j4"
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -114,7 +113,6 @@ script:
   - tar cjvf zxtk_amd64.tar.gz ../install
   - ../build/tests
   - if [ "${CODE_COV}" == "y" ];then cd .. && sh -e get_code_cov.sh && codecov;fi
-  - ${DEBUG_COMMAND}
 after_success:
   # Codecov
   - if [ "${CODE_COV}" == "y" ];then cd ${TRAVIS_BUILD_DIR} && lcov --directory . --capture --output-file coverage.info && lcov --remove coverage.info '/usr/*' --output-file coverage.info && lcov --list coverage.info && bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";fi
