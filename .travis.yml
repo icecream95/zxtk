@@ -43,7 +43,7 @@ matrix:
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z'
         - DO_DEPLOY="y"
         - CODE_COV="n"
-        - DEBUG_COMMAND="cat /home/travis/build/icecream95/zxtk/build/cov-int/scm_log.txt"
+        - DEBUG_COMMAND='if [ "$TRAVIS_BRANCH" == "coverity_scan" ];then cat /home/travis/build/icecream95/zxtk/build/cov-int/scm_log.txt; fi'
     - os: linux
       compiler:
         - gcc
