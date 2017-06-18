@@ -65,6 +65,8 @@ namespace zxtk
             types::byte& r() {return st_r;}
             bool& iff1() {return st_iff1;}
             bool& iff2() {return st_iff2;}
+            void exx() {std::swap(st_bc,st_bc_a);std::swap(st_de,st_de_a);std::swap(st_hl,st_hl_a);}
+            void ex_af_af() {std::swap(st_af, st_af_a);}
             // const versions
             types::byte a() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::little_endian());}
             types::byte f() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::big_endian());}
@@ -90,8 +92,6 @@ namespace zxtk
             types::byte r() const {return st_r;}
             bool iff1() const {return st_iff1;}
             bool iff2() const {return st_iff2;}
-            void exx() {std::swap(st_bc,st_bc_a);std::swap(st_de,st_de_a);std::swap(st_hl,st_hl_a);}
-            void ex_af_af() {std::swap(st_af, st_af_a);}
         protected:
             types::word st_af;
             types::word st_bc;
