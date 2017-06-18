@@ -1,4 +1,4 @@
-// zxtk/$BUILD/src/include/zxtk/misc/zxtk_confid.hpp
+// zxtk/$BUILD/src/include/zxtk/misc/zxtk_config.hpp
 
 #include <string>
 
@@ -23,6 +23,10 @@ namespace zxtk
 
 #if @ZXTK_USING_SDL_TRUE@ == 1
 #define ZXTK_USING_SDL_TRUE
+#endif
+
+#if @ZXTK_ENDIANNESS_CONST@ == 1
+#define ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
 #endif
 
 #endif

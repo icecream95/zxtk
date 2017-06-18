@@ -20,6 +20,13 @@ namespace zxtk
             {
                 return ((std::uint16_t{1}>>8)>0)?0:1;
             }
+#ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
+            constexpr
+#endif
+            types::byte big_endian()
+            {
+                return ((std::uint16_t{1}>>8)>0)?1:0;
+            }
         }
         class Z80_register_set
         {
@@ -35,17 +42,17 @@ namespace zxtk
 
             // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte& a() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::little_endian());}
-            types::byte& f() {return *(reinterpret_cast<types::byte*>(&st_af)+1-impl::little_endian());}
+            types::byte& f() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::big_endian());}
             types::byte& b() {return *(reinterpret_cast<types::byte*>(&st_bc)+impl::little_endian());}
-            types::byte& c() {return *(reinterpret_cast<types::byte*>(&st_bc)+1-impl::little_endian());}
+            types::byte& c() {return *(reinterpret_cast<types::byte*>(&st_bc)+impl::big_endian());}
             types::byte& d() {return *(reinterpret_cast<types::byte*>(&st_de)+impl::little_endian());}
-            types::byte& e() {return *(reinterpret_cast<types::byte*>(&st_de)+1-impl::little_endian());}
+            types::byte& e() {return *(reinterpret_cast<types::byte*>(&st_de)+impl::big_endian());}
             types::byte& h() {return *(reinterpret_cast<types::byte*>(&st_hl)+impl::little_endian());}
-            types::byte& l() {return *(reinterpret_cast<types::byte*>(&st_hl)+1-impl::little_endian());}
+            types::byte& l() {return *(reinterpret_cast<types::byte*>(&st_hl)+impl::big_endian());}
             types::byte& ixh() {return *(reinterpret_cast<types::byte*>(&st_ix)+impl::little_endian());}
-            types::byte& ixl() {return *(reinterpret_cast<types::byte*>(&st_ix)+1-impl::little_endian());}
+            types::byte& ixl() {return *(reinterpret_cast<types::byte*>(&st_ix)+impl::big_endian());}
             types::byte& iyh() {return *(reinterpret_cast<types::byte*>(&st_iy)+impl::little_endian());}
-            types::byte& iyl() {return *(reinterpret_cast<types::byte*>(&st_iy)+1-impl::little_endian());}
+            types::byte& iyl() {return *(reinterpret_cast<types::byte*>(&st_iy)+impl::big_endian());}
             types::word& af() {return st_af;}
             types::word& bc() {return st_bc;}
             types::word& de() {return st_de;}
@@ -60,17 +67,17 @@ namespace zxtk
             bool& iff2() {return st_iff2;}
             // const versions
             types::byte a() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::little_endian());}
-            types::byte f() const {return *(reinterpret_cast<const types::byte*>(&st_af)+1-impl::little_endian());}
+            types::byte f() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::big_endian());}
             types::byte b() const {return *(reinterpret_cast<const types::byte*>(&st_bc)+impl::little_endian());}
-            types::byte c() const {return *(reinterpret_cast<const types::byte*>(&st_bc)+1-impl::little_endian());}
+            types::byte c() const {return *(reinterpret_cast<const types::byte*>(&st_bc)+impl::big_endian());}
             types::byte d() const {return *(reinterpret_cast<const types::byte*>(&st_de)+impl::little_endian());}
-            types::byte e() const {return *(reinterpret_cast<const types::byte*>(&st_de)+1-impl::little_endian());}
+            types::byte e() const {return *(reinterpret_cast<const types::byte*>(&st_de)+impl::big_endian());}
             types::byte h() const {return *(reinterpret_cast<const types::byte*>(&st_hl)+impl::little_endian());}
-            types::byte l() const {return *(reinterpret_cast<const types::byte*>(&st_hl)+1-impl::little_endian());}
+            types::byte l() const {return *(reinterpret_cast<const types::byte*>(&st_hl)+impl::big_endian());}
             types::byte ixh() const {return *(reinterpret_cast<const types::byte*>(&st_ix)+impl::little_endian());}
-            types::byte ixl() const {return *(reinterpret_cast<const types::byte*>(&st_ix)+1-impl::little_endian());}
+            types::byte ixl() const {return *(reinterpret_cast<const types::byte*>(&st_ix)+impl::big_endian());}
             types::byte iyh() const {return *(reinterpret_cast<const types::byte*>(&st_iy)+impl::little_endian());}
-            types::byte iyl() const {return *(reinterpret_cast<const types::byte*>(&st_iy)+1-impl::little_endian());}
+            types::byte iyl() const {return *(reinterpret_cast<const types::byte*>(&st_iy)+impl::big_endian());}
             types::word af() const {return st_af;}
             types::word bc() const {return st_bc;}
             types::word de() const {return st_de;}
@@ -83,7 +90,7 @@ namespace zxtk
             types::byte r() const {return st_r;}
             bool iff1() const {return st_iff1;}
             bool iff2() const {return st_iff2;}
-        private:
+        protected:
             types::word st_af;
             types::word st_bc;
             types::word st_de;
