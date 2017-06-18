@@ -72,8 +72,8 @@ matrix:
             name: "icecream95/zxtk"
             description: "Build submitted via Travis CI"
           notification_email: "nosuchaddress@example.com"
-          build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean && cov-configure --comptype gcc --compiler gcc-7 --template"
-          build_command:   "make -j4; ./tests; cd .."
+          build_command_prepend: "sudo mkdir -p /usr/lib/cmake/SDL2/ && sudo cp sdl2-config.cmake /usr/lib/cmake/SDL2/sdl2-config.cmake && mkdir -p build && cd build && cmake .. -DCMAKE_CXX_FLAGS='-Wall -std=c++1z' && make clean && cov-configure --comptype gcc --compiler gcc-7 --template && cp ../coverity_build.sh ."
+          build_command:   "sh -e coverity_build.sh"
           branch_pattern: coverity_scan
         apt:
           sources:
