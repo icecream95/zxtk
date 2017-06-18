@@ -88,7 +88,6 @@ matrix:
         - SET_CMAKE_CXX_FLAGS='-Wall -std=c++1z -fprofile-arcs -ftest-coverage'
         - DO_DEPLOY="n"
         - CODE_COV="y"
-        - COV_DEBUG_COMMAND="cat /home/travis/build/icecream95/zxtk/cov-int/scm_log.txt"
 env:
   global:
     - secure: "rtNmICrZHxBIRQhxqJAFAqIhJBDTqoV6lcPannTs8Zzj/bAXKGrSx08pMay4meVfUkv+L8fBcdqDHwHm+JhKiHQsBeuXzfCg+HLX61W9myTijlqWvYJLF5Q1rBd1IB8dfEq9BPaYoHe/jNs7GIRfJAWOJXMdPlY7f9i7Bc4NpPo9YRPwkC/qyNXdL22WnXZr453Z8FeSg6/q/rzuUQcgVCJ0Z4mRPgBVa/cNo24kny1zDAnc883S/Y7xGEt7r55rOo9uqDUktQnXvTb3Tq6IULcKE9YYc9ND9FaDEyjB8gLJSOzlYBSieKVV2Pe2K7NEpvY90+UI1s9JU7zAHBZJ0DQRE/2YvggfMX/Zt0sB4UkPGpU7LpUsz/WnNqPzb5wVupbnvnNTSLI9x9/PvNRuAXGjypWhHa8If/xWx6BW5Rm6D9Z9MT/8BCdPvog4q3zJ4nvSPIchHbOJqGJxIm2Wpcp0MAQ2DCNjnT7mdGL9WrWEFL2nj+MZb4YX3dSup+40fgKUvNSD0X9b+VdxP0DzXAs1aXeAlHm5+d+YgK0CauBxB3UTaknTsz4Ti5MCxRVVjYjC8L0LPKsUuLAM2x2M2dhDeq30AK/nB1QMnXZ1MINbyibrz69JsJ7JhTSxhhLfazkFvSxaW08uxwConl99/Ge3HFfX3NTDdxlRafWD+A4="
@@ -117,7 +116,7 @@ script:
 after_success:
   # Codecov
   - if [ "${CODE_COV}" == "y" ];then cd ${TRAVIS_BUILD_DIR} && lcov --directory . --capture --output-file coverage.info && lcov --remove coverage.info '/usr/*' --output-file coverage.info && lcov --list coverage.info && bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";fi
-  - ${COV_DEBUG_COMMAND}
+  - cat /home/travis/build/icecream95/zxtk/cov-int/scm_log.txt
 deploy:
   provider: pages
   skip_cleanup: true
