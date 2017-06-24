@@ -29,4 +29,22 @@ namespace zxtk
 #define ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
 #endif
 
+#if @ZXTK_Z80_CORRECT_FLAGS@ == 1
+#define ZXTK_Z80_CORRECT_FLAGS
+#endif
+
+#if @ZXTK_CORRECT_TIMING@ == 1
+#define ZXTK_Z80_CORRECT_TIMING
+#endif
+
+#if @ZXTK_Z80_FASTEST@ == 1
+#undef ZXTK_Z80_CORRECT_FLAGS
+#undef ZXTK_Z80_CORRECT_TIMING
+#define ZXTK_Z80_FASTEST
+#endif
+
+#if @ZXTK_MULTI_THREADS@ == 1
+#define ZXTK_THREADS_TRUE
+#endif
+
 #endif

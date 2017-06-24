@@ -9,7 +9,6 @@ set (ZXTK_VERSION_UPDATE 0)
 set (ZXTK_TYPES_BYTE "std::uint8_t" CACHE STRING "The type of a byte. It is very unlikely you will want to change this (uint8_t)")
 set (ZXTK_TYPES_WORD "std::uint16_t" CACHE STRING "The type of a word. It is very unlikely you will want to change this (uint16_t)")
 set (ZXTK_TYPES_POINTER "std::uintptr_t" CACHE STRING "The type of an address (all memory, not z80) (uintptr_t)")
-# Probably should make a way to set these without having to edit the CMakeLists
 
 set (INCLUDE_FILE "include.default.hpp" CACHE STRING "include.hpp file to use (is included everywhere) (include.default.hpp)")
 
@@ -18,6 +17,13 @@ set (LOAD_FILE "load.default.cpp" CACHE STRING "load.cpp file to use (load.defau
 set (CONFIGURE_FILE "configure.default.hpp" CACHE STRING "configure.hpp file to use (configure.default.hpp")
 
 option(ZXTK_ENDIANNESS_CONST "Determine endianness of CPU at compile time (on)" TRUE)
+
+option(ZXTK_Z80_CORRECT_FLAGS "Set, 3, 5, and 7 bit flags (on)" TRUE)
+option(ZXTK_CORRECT_TIMING "Time operations correctly. Without this, operations will be completed on the first T state (on)" TRUE)
+option(ZXTK_Z80_FASTEST "This speeds up emulation max speed, possibly breaking some programs. Note that is forces off ZXTK_Z80_CORRECT_FLAGS and ZXTK_CORRECT_TIMING. (off)" FALSE)
+
+option(ZXTK_MULTI_THREADS "This compiles zxtk with multiple threads, possibly speeding up emulation (on)" TRUE)
+option(ZXTK_BUFFER "When multiple threads are enabled, this enables a memory buffer, increasing memory usage but allowing the z80 to run ahead of the display etc (on)" TRUE)
 
 option(USE_SDL "Enable graphical display of emulation using SDL (on)" TRUE)
 option(SDL2_STATIC "Link static build of SDL into the binaries" FALSE)

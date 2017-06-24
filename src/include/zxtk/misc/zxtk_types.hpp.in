@@ -20,6 +20,7 @@ namespace zxtk  // This is a (sort of) standalone utility. Should this be in nam
         using byte = @ZXTK_TYPES_BYTE@;
         using word = @ZXTK_TYPES_WORD@;
         using pointer = @ZXTK_TYPES_POINTER@;
+        // TODO: Add cycle type
     }
 }
 
