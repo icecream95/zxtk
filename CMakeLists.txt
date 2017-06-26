@@ -39,6 +39,7 @@ endif ()
 
 option(COMPILE_TESTS "Compile tests" TRUE)
 
+# This might seem a bit weird, but the chance of someone not wanting SDL at the moment is pretty low
 set (ZXTK_USING_SDL_TRUE 0)
 if (USE_SDL)
     message(STATUS "Looking for SDL...")
@@ -47,9 +48,40 @@ if (USE_SDL)
     link_directories(${SDL2_LIBRARY_DIRS})
     message(STATUS "SDL found")
 endif ()
-# This might seem a bit weird, but the chance of someone not wanting SDL at the moment is pretty low
+
+set(ZXTK_ENDIANNESS_CONST_CFG 0)
+if (ZXTK_ENDIANNESS_CONST)
+    set(ZXTK_ENDIANNESS_CONST_CFG 1)
+endif ()
+
+set(ZXTK_Z80_CORRECT_FLAGS_CFG 0)
+if (ZXTK_Z80_CORRECT_FLAGS)
+    set(ZXTK_Z80_CORRECT_FLAGS_CFG 1)
+endif ()
+
+set(ZXTK_CORRECT_TIMING_CFG 0)
+if (ZXTK_CORRECT_TIMING)
+    set(ZXTK_CORRECT_TIMING_CFG 1)
+endif ()
+
+set(ZXTK_Z80_FASTEST_CFG 0)
+if (ZXTK_Z80_FASTEST)
+    set(ZXTK_Z80_FASTEST_CFG 1)
+endif ()
+
+set(ZXTK_MULTI_THREADS_CFG 0)
+if (ZXTK_MULTI_THREADS)
+    set(ZXTK_MULTI_THREADS_CFG 1)
+endif ()
+
+set(ZXTK_BUFFER_CFG 0)
+if (ZXTK_BUFFER)
+    set(ZXTK_BUFFER_CFG 1)
+endif ()
+
 
 set(ZXTK_VERSION "${ZXTK_VERSION_MAJOR}.${ZXTK_VERSION_MINOR}.${ZXTK_VERSION_UPDATE}")
+
 
 configure_file (
   "${PROJECT_SOURCE_DIR}/src/include/zxtk/misc/zxtk_config.hpp.in"

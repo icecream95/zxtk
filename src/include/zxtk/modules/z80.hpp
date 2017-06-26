@@ -18,9 +18,8 @@ namespace zxtk
                 {
 #ifdef ZXTK_Z80_CORRECT_TIMING
 #pragma NOSUCHPRAGMA NOTE: Correct timing feature has not been implemented yet, falling back to incorrect time. This will cause multicolour programs, and some others, to not work correctly
-#else
-                   advance(4);
 #endif
+                   advance(4);
                 };
             protected:
                 void advance(int i)
