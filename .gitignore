@@ -1,6 +1,5 @@
 build
-build_support
-install
+ignore
 
 *.pch
 *.gch
