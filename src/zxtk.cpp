@@ -21,7 +21,7 @@ int main ()
 #ifdef ZXTK_Z80_FASTEST
     std::cout << "NOTE: fast z80 option is enabled; crashes may (will probably) occur\n";
 #else
-#ifndef ZXTK_Z80_CORRECT_FLAGS_CFG
+#ifndef ZXTK_Z80_CORRECT_FLAGS
     std::cout << "NOTE: correct flags are diabled. This speeds up emulation, but programs may crash\n";
 #endif
 #ifndef ZXTK_Z80_CORRECT_TIMING
