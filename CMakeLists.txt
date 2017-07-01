@@ -9,6 +9,7 @@ set (ZXTK_VERSION_UPDATE 0)
 set (ZXTK_TYPES_BYTE "std::uint8_t" CACHE STRING "The type of a byte. It is very unlikely you will want to change this (uint8_t)")
 set (ZXTK_TYPES_WORD "std::uint16_t" CACHE STRING "The type of a word. It is very unlikely you will want to change this (uint16_t)")
 set (ZXTK_TYPES_POINTER "std::uintptr_t" CACHE STRING "The type of an address (all memory, not z80) (uintptr_t)")
+set (ZXTK_TYPES_CYCLE "std::uint32_t" CACHE STRING "The type of a cycle. (32bit: 20min, 64 bit: 150millenia) (uint32_t)")
 
 set (INCLUDE_FILE "include.default.hpp" CACHE STRING "include.hpp file to use (is included everywhere) (include.default.hpp)")
 
