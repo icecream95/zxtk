@@ -10,10 +10,8 @@
 #define ZXTK_VERSION_UPDATE @ZXTK_VERSION_UPDATE@
 #define ZXTK_VERSION "@ZXTK_VERSION@"
 
-namespace zxtk
-{
-    namespace version
-    {
+namespace zxtk {
+    namespace version {
         constexpr int major = @ZXTK_VERSION_MAJOR@;
         constexpr int minor = @ZXTK_VERSION_MINOR@;
         constexpr int update = @ZXTK_VERSION_UPDATE@;

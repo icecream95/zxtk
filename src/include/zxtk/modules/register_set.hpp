@@ -7,10 +7,8 @@
 #include <utility>
 #include <cstddef>
 
-namespace zxtk
-{
-    namespace register_set
-    {
+namespace zxtk {
+    namespace register_set {
         namespace impl
         {
 #ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
