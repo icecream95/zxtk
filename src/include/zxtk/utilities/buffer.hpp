@@ -11,10 +11,8 @@
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/utilities/utilities.hpp>
 
-namespace zxtk                                              // Should this be in here?
-{
-    namespace buffer
-    {
+namespace zxtk {                                              // Should this be in here?
+    namespace buffer {
         // Should the priority type be templated? What about the tick type
         template <typename T, typename L = unsigned long long, typename P = int>
         class Buf_access_info {

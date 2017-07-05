@@ -10,10 +10,8 @@
 #define ZXTK_VERSION_UPDATE @ZXTK_VERSION_UPDATE@
 #define ZXTK_VERSION "@ZXTK_VERSION@"
 
-namespace zxtk
-{
-    namespace version
-    {
+namespace zxtk {
+    namespace version {
         constexpr int major = @ZXTK_VERSION_MAJOR@;
         constexpr int minor = @ZXTK_VERSION_MINOR@;
         constexpr int update = @ZXTK_VERSION_UPDATE@;
@@ -21,12 +19,47 @@ namespace zxtk
     }
 }
 
+
+// Unfortunately, this has to be in the global namespace due to limitation with
+// preprocessor directives
+constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rhs )
+{
+    return (('\0' == lhs[0]) && ('\0' == rhs[0])) ? 0
+    :  (lhs[0] != rhs[0]) ? (lhs[0] - rhs[0])
+    : zxtk_implemenation_stuff_c_strcmp( lhs+1, rhs+1 );
+}
+
+
 #if @ZXTK_USING_SDL_TRUE@ == 1
 #define ZXTK_USING_SDL_TRUE
 #endif
 
-#if @ZXTK_ENDIANNESS_CONST@ == 1
+#if @ZXTK_ENDIANNESS_CONST_CFG@ == 1
 #define ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
+#endif
+
+#if @ZXTK_Z80_CORRECT_FLAGS_CFG@ == 1
+#define ZXTK_Z80_CORRECT_FLAGS
+#endif
+
+#if @ZXTK_CORRECT_TIMING_CFG@ == 1
+#define ZXTK_Z80_CORRECT_TIMING
+#endif
+
+#if @ZXTK_Z80_FASTEST_CFG@ == 1
+#define ZXTK_Z80_FASTEST
+#ifdef ZXTK_Z80_CORRECT_FLAGS
+#pragma message "Undefining ZXTK_Z80_CORRECT_FLAGS option"
+#endif
+#ifdef ZXTK_Z80_CORRECT_TIMING
+#pragma message "Undefining ZXTK_Z80_CORRECT_TIMING option"
+#endif
+#undef ZXTK_Z80_CORRECT_FLAGS
+#undef ZXTK_Z80_CORRECT_TIMING
+#endif
+
+#if @ZXTK_MULTI_THREADS_CFG@ == 1
+#define ZXTK_THREADS_TRUE
 #endif
 
 #endif

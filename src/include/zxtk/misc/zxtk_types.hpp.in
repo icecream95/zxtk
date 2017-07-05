@@ -7,19 +7,18 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace zxtk  // This is a (sort of) standalone utility. Should this be in namespace zxtk? I'm not that sure.
-{
-    namespace types
-    {
-        namespace names
-        {
+namespace zxtk {    // This is a (sort of) standalone utility. Should this be in namespace zxtk? I'm not that sure.
+    namespace types {
+        namespace names {
             const std::string byte_name {"@ZXTK_TYPES_BYTE@"};
             const std::string word_name {"@ZXTK_TYPES_WORD@"};
             const std::string pointer_name {"@ZXTK_TYPES_POINTER@"};
+        const std::string cycle_name {"@ZXTK_TYPES_CYCLE@"};
         }
         using byte = @ZXTK_TYPES_BYTE@;
         using word = @ZXTK_TYPES_WORD@;
         using pointer = @ZXTK_TYPES_POINTER@;
+        using cycle = @ZXTK_TYPES_CYCLE@;
     }
 }
 

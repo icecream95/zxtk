@@ -1,9 +1,7 @@
 #include <string>
 
-namespace zxtk
-{
-    namespace info
-    {
+namespace zxtk {
+    namespace info {
         const std::string load_name {"@LOAD_FILE@"};
     }
 }
