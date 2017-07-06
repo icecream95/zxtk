@@ -18,9 +18,11 @@ namespace zxtk {
         template<types::pointer S>
         class Basic_memory_array_test { // TODO: Remove this when Memory_Array is done
         public:
-            wtite
+            // NOTE: The memory interface is not finalised, and will be changed before v1.0
+            array<types::byte,S>& get_mem() {return memory;}
+            const array<types::byte,S>& read_mem() const {return memory;}
         protected:
-            array<types::byte,S>;
+            array<types::byte,S> memory;
         };
 
         template<typename A = Memory_array>
