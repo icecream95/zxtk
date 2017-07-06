@@ -8,5 +8,6 @@ try {
 }
 catch (...)
 {
-    std::cout << "Exception during testing. Exiting...";
+    std::cout << "Exception during testing. Exiting...\n";
+    return 1;
 }
