@@ -2,11 +2,13 @@
 #include <gtest/gtest.h>
 
 int main(int argc, char* argv[])
-try {
+try
+{
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-catch (...) {
+catch (...)
+{
     std::cout << "Exception during testing. Exiting...\n";
     return 1;
 }
