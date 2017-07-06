@@ -88,25 +88,27 @@ namespace zxtk {
             types::word pc() const {return st_pc;}
             types::byte i() const {return st_i;}
             types::byte r() const {return st_r;}
-            bool iff1() const {return st_iff1;}
-            bool iff2() const {return st_iff2;}
+            bool iff() const {return st_iff1;}
+            types::byte get_im() const {return st_im;}
+            void store_im(types::byte b) {switch(b){case 0: case 1: case 2: st_im = b;default:;}}
         protected:
-            types::word st_af;
-            types::word st_bc;
-            types::word st_de;
-            types::word st_hl;
-            types::word st_af_a;
-            types::word st_bc_a;
-            types::word st_de_a;
-            types::word st_hl_a;
-            types::word st_pc;
-            types::word st_sp;
-            types::word st_ix;
-            types::word st_iy;
-            types::byte st_r;
-            types::byte st_i;
-            bool st_iff1;
-            bool st_iff2;
+            types::word st_af {0xffff};
+            types::word st_bc {0xffff};
+            types::word st_de {0xffff};
+            types::word st_hl {0xffff};
+            types::word st_af_a {0xffff};
+            types::word st_bc_a {0xffff};
+            types::word st_de_a {0xffff};
+            types::word st_hl_a {0xffff};
+            types::word st_pc {0x0000};
+            types::word st_sp {0xffff};
+            types::word st_ix {0xffff};
+            types::word st_iy {0xffff};
+            types::byte st_r {0xff};
+            types::byte st_i {0xff};
+            types::byte st_im {0x00};
+            bool st_iff1 {0};
+            bool st_iff2 {0};
         };
     }
 }
