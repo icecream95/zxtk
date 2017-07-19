@@ -15,6 +15,7 @@ namespace zxtk {    // This is a (sort of) standalone utility. Should this be in
             const std::string pointer_name {"@ZXTK_TYPES_POINTER@"};
         const std::string cycle_name {"@ZXTK_TYPES_CYCLE@"};
         }
+        // oops! Just realised all these types start with a lowercase. I like lowercase better though.
         using byte = @ZXTK_TYPES_BYTE@;
         using word = @ZXTK_TYPES_WORD@;
         using pointer = @ZXTK_TYPES_POINTER@;

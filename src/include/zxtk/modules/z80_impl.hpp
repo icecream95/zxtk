@@ -9,19 +9,51 @@ namespace zxtk {
     namespace cpu {
         namespace impl {
             struct Default_cpu_impl {
+                // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
+                // I'm not using a table for memory, obviously!
                 void nop() // 00
                 {
 #ifdef ZXTK_Z80_CORRECT_TIMING
 #pragma NOSUCHPRAGMA NOTE: Correct timing feature has not been implemented yet, falling back to incorrect time. This will cause multicolour programs, and some others, to not work correctly
 #endif
                     ++r.pc();
-                    clock(4);
+                    clock(4); // NOTE: Not the c function! See protected part of class definition
+                    // How about a syntax like this?
+                    // clock(m1);
                 }
                 void ld_bc_nn() // 01
                 {
-                    // r.bc() = m.p16(r.pc());
+                    // r.bc() = m.c.p16(r.pc());
+                    // Is the m.c.xx syntax good (Memory.Const.operation)?
+                    // How about m.c16 and m.g16? 
                     r.pc() += 3;
                     clock(10);
+                    // clock(m1,mem,mem);
+                }
+                void ld_addr_bc_a() // 02
+                {
+                    // m.p8(r.bc()) = r.a();
+                    ++r.pc();
+                    clock(7);
+                    // clock(m1,mem);
+                }
+                void inc_bc() // 03
+                {
+                    ++r.bc();
+                    ++r.pc();
+                    clock(6);
+                    // clock(m1_6);
+                }
+                void inc_b() // 04
+                {
+                    ++r.b();
+#ifdef ZXTK_Z80_CORRECT_FLAGS
+                    r.f() & 1 | (r.b() & 168) | ((r.b()==0) & 64) | (((r.b() & 24)==16) & 16);
+#else
+#endif
+                    ++r.pc();
+                    clock(4);
+                    // clock(m1);
                 }
             protected:
                 
