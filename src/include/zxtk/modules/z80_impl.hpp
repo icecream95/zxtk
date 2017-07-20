@@ -47,10 +47,7 @@ namespace zxtk {
                 void inc_b() // 04
                 {
                     ++r.b();
-#ifdef ZXTK_Z80_CORRECT_FLAGS
                     r.f() & 1 | (r.b() & 168) | ((r.b()==0) & 64) | (((r.b() & 24)==16) & 16);
-#else
-#endif
                     ++r.pc();
                     clock(4);
                     // clock(m1);

@@ -19,9 +19,8 @@ set (CONFIGURE_FILE "configure.default.hpp" CACHE STRING "configure.hpp file to 
 
 option(ZXTK_ENDIANNESS_CONST "Determine endianness of CPU at compile time (on)" TRUE)
 
-option(ZXTK_Z80_CORRECT_FLAGS "Set, 3, 5, and 7 bit flags (on)" TRUE)
 option(ZXTK_CORRECT_TIMING "Time operations correctly. Without this, operations will be completed on the first T state (on)" TRUE)
-option(ZXTK_Z80_FASTEST "This speeds up emulation max speed, possibly breaking some programs. Note that is forces off ZXTK_Z80_CORRECT_FLAGS and ZXTK_CORRECT_TIMING. (off)" FALSE)
+option(ZXTK_Z80_FASTEST "This speeds up emulation max speed, possibly breaking some programs. Note that is forces off ZXTK_CORRECT_TIMING. (off)" FALSE)
 
 option(ZXTK_MULTI_THREADS "This compiles zxtk with multiple threads, possibly speeding up emulation (on)" TRUE)
 option(ZXTK_BUFFER "When multiple threads are enabled, this enables a memory buffer, increasing memory usage but allowing the z80 to run ahead of the display etc (on)" TRUE)

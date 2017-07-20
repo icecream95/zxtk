@@ -38,23 +38,16 @@ constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rh
 #define ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
 #endif
 
-#if @ZXTK_Z80_CORRECT_FLAGS_CFG@ == 1
-#define ZXTK_Z80_CORRECT_FLAGS
-#endif
-
 #if @ZXTK_CORRECT_TIMING_CFG@ == 1
 #define ZXTK_Z80_CORRECT_TIMING
 #endif
 
 #if @ZXTK_Z80_FASTEST_CFG@ == 1
 #define ZXTK_Z80_FASTEST
-#ifdef ZXTK_Z80_CORRECT_FLAGS
-#pragma message "Undefining ZXTK_Z80_CORRECT_FLAGS option"
-#endif
+
 #ifdef ZXTK_Z80_CORRECT_TIMING
 #pragma message "Undefining ZXTK_Z80_CORRECT_TIMING option"
 #endif
-#undef ZXTK_Z80_CORRECT_FLAGS
 #undef ZXTK_Z80_CORRECT_TIMING
 #endif
 
