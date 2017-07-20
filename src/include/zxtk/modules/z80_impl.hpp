@@ -47,7 +47,8 @@ namespace zxtk {
                 void inc_b() // 04
                 {
                     ++r.b();
-                    r.f() & 1 | (r.b() & 168) | ((r.b()==0) & 64) | (((r.b() & 24)==16) & 16);
+                    // DELETEME r.f() & 1 | (r.b() & 168) | ((r.b()==0) & 64) | (((r.b() & 24)==16) & 16);
+                    // flagaffect (r.b()
                     ++r.pc();
                     clock(4);
                     // clock(m1);

@@ -44,7 +44,6 @@ constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rh
 
 #if @ZXTK_Z80_FASTEST_CFG@ == 1
 #define ZXTK_Z80_FASTEST
-
 #ifdef ZXTK_Z80_CORRECT_TIMING
 #pragma message "Undefining ZXTK_Z80_CORRECT_TIMING option"
 #endif
