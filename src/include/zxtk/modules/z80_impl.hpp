@@ -23,10 +23,10 @@ namespace zxtk {
                 }
                 void ld_bc_nn() // 01
                 {
-                    // r.bc() = m.c.p16(r.pc());
+                    // r.bc() = m.c.p16(++r.pc());
                     // Is the m.c.xx syntax good (Memory.Const.operation)?
                     // How about m.c16 and m.g16? 
-                    r.pc() += 3;
+                    r.pc() += 2;
                     clock(10);
                     // clock(m1,mem,mem);
                 }
@@ -52,6 +52,21 @@ namespace zxtk {
                     ++r.pc();
                     clock(4);
                     // clock(m1);
+                }
+                void dec_b() // 04
+                {
+                    --r.b();
+                    // TODO: flagaffect call
+                    ++r.pc();
+                    clock(4);
+                    // clock(m1);
+                }
+                void ld_b_n() // 05
+                {
+                    // r.b() = m.c.p8(++r.pc());
+                    ++r.pc();
+                    clock(7);
+                    // clock(m1,mem);
                 }
             protected:
                 
