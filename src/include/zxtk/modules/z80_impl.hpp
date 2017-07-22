@@ -47,8 +47,9 @@ namespace zxtk {
                 void inc_b() // 04
                 {
                     ++r.b();
-                    // DELETEME r.f() & 1 | (r.b() & 168) | ((r.b()==0) & 64) | (((r.b() & 24)==16) & 16);
-                    // flagaffect (r.b()
+                    // flagaffect (r.b(),254);
+                    // ^~~~~~~~~~ any ideas for a better name for this function?
+                    // The 254 is 11111110, or all the flags this instruction affects
                     ++r.pc();
                     clock(4);
                     // clock(m1);
@@ -57,7 +58,7 @@ namespace zxtk {
                 
                 register_set::Z80_register_set r;
                 // memory::Memory m;
-                types::cycle diff_cycle (types::cycle a, types::cycle b) {return 0;} // TODO
+                types::cycle diff_cycle (types::cycle, types::cycle) {return 0;} // TODO
                 types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
                 types::cycle mcycle() { /*...*/ return 0;} // TODO
                 void clock(types::cycle i)
