@@ -4,3 +4,22 @@
 ZX spectrum Tool Kit: a fast, efficient, capable, modular ZX Spectrum emulator
 
 **NOTE:** This is WIP so don't expect it to do much more than compile
+
+Finished:
+ - [x] Register set implementation
+
+Working on:
+ - [x] Memory interface
+ - [x] Z80 instructions
+ - [ ] I/O interface
+ - [ ] Spectrum ULA
+ - [ ] File interface
+ - [ ] Mod interface
+ - [ ] Graphics interface
+ 
+
+Points of discussion - feel free to open an issue on your thoughts about these:
+ - The use of lowercase namespace names - sorry Bjarne, but I think it looks neater
+ - ZX81 compatibility?
+ - Issue 1 speccy?
+ - Should memory have a buffer, allowing the z80 to run ahead of the ULA?
