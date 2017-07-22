@@ -20,6 +20,13 @@ Working on:
 
 Points of discussion - feel free to open an issue on your thoughts about these:
  - The use of lowercase namespace names - sorry Bjarne, but I think it looks neater
+
+Possible features - these might not be added until after 1.0
  - ZX81 compatibility?
  - Issue 1 speccy?
  - Should memory have a buffer, allowing the z80 to run ahead of the ULA?
+ - In-emulator [worldofspectrum.org](https://worldofspectrum.org) program downloader?
+ - Assembler
+ - Utilities (similar to [fuse-emulator-utils](https://sourceforge.net/p/fuse-emulator/fuse-utils/ci/master/tree/)
+ - BASIC parser
+ - OS
