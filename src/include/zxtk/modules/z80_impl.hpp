@@ -4,13 +4,17 @@
 #include <zxtk/misc/zxtk_config.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/modules/register_set.hpp>
+#include <zxtk/modules/memory.hpp>
 
 namespace zxtk {
     namespace cpu {
         namespace impl {
+            template <typename M = memory::Memory<memory::Memory_array<types::pointer,types::cycle>>, typename R = register_set::Z80_register_set>
             struct Default_cpu_impl {
                 // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
                 // I'm not using a table for memory, obviously!
+                using memory_type = M;
+                using register_type = R;
                 void nop() // 00
                 {
 #ifdef ZXTK_Z80_CORRECT_TIMING
@@ -23,16 +27,14 @@ namespace zxtk {
                 }
                 void ld_bc_nn() // 01
                 {
-                    // r.bc() = m.c.p16(++r.pc());
-                    // Is the m.c.xx syntax good (Memory.Const.operation)?
-                    // How about m.c16 and m.g16? 
+                    // r.bc() = m.g16(++r.pc());
                     r.pc() += 2;
                     clock(10);
                     // clock(m1,mem,mem);
                 }
                 void ld_addr_bc_a() // 02
                 {
-                    // m.p8(r.bc()) = r.a();
+                    // m.r8(r.bc()) = r.a();
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
@@ -64,15 +66,14 @@ namespace zxtk {
                 }
                 void ld_b_n() // 05
                 {
-                    // r.b() = m.c.p8(++r.pc());
+                    // r.b() = m.g8(++r.pc());
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
                 }
             protected:
-                
-                register_set::Z80_register_set r;
-                // memory::Memory m;
+                R r;
+                M m; // Ummm, should the CPU own the memory? TODO
                 types::cycle diff_cycle (types::cycle, types::cycle) {return 0;} // TODO
                 types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
                 types::cycle mcycle() { /*...*/ return 0;} // TODO

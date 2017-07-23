@@ -19,18 +19,19 @@ namespace zxtk {
         class Basic_memory_array_test { // TODO: Remove this when Memory_Array is done
         public:
             // NOTE: The memory interface is not finalised, and will be changed long before v1.0
-            array<types::byte,S>& get_mem() {return memory;}
-            const array<types::byte,S>& read_mem() const {return memory;}
+            std::array<types::byte,S>& get_mem() {return memory;}
+            const std::array<types::byte,S>& read_mem() const {return memory;}
         protected:
-            array<types::byte,S> memory;
+            std::array<types::byte,S> memory;
         };
 
-        template<typename A = Memory_array>
+        template<typename A = Memory_array<types::pointer,types::cycle>> // 48k // CHANGEME
         class Memory {
+            // n.g8 get, r, r
         public:
         private:
             A m;
-        }
+        };
     }
 }
 

@@ -131,11 +131,13 @@ install(TARGETS zxtk memory load cpu
         ARCHIVE DESTINATION lib/static
 )
 
+# TODO: Set ZXTK_TEST_SOURCES to everything in the test dir
 if(COMPILE_TESTS)
     set(ZXTK_TEST_SOURCES
             src/tests/test.cpp
             src/tests/test_buffer.cpp
             src/tests/test_register_set.cpp
+            src/tests/test_cpu.cpp
     )
     add_subdirectory(src/lib/gtest)
     include_directories(src/lib/gtest/googletest/include)
