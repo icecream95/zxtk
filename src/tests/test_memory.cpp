@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <zxtk/modules/memory.cpp>
+#include <zxtk/modules/memory.hpp>
 
 #include <iostream>
 
