@@ -9,7 +9,7 @@
 namespace zxtk {
     namespace cpu {
         namespace impl {
-            template <typename M = memory::Memory<memory::Memory_array<types::pointer,types::cycle>>, typename R = register_set::Z80_register_set>
+            template <typename M = memory::Memory, typename R = register_set::Z80_register_set>
             struct Default_cpu_impl {
                 // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
                 // I'm not using a table for memory, obviously!

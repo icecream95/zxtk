@@ -25,12 +25,14 @@ namespace zxtk {
             std::array<types::byte,S> memory;
         };
 
-        template<typename A = Memory_array<types::pointer,types::cycle>> // 48k // CHANGEME
+        //template<typename A = Memory_array<types::pointer,types::cycle>> // 48k // CHANGEME
         class Memory {
-            // n.g8 get, r, r
+            types::byte g8 (types::pointer p) const {return m[p];}
+            types::word g16 (types::pointer p) const {return *reinterpret_cast<const types::word*>(&m[p]);}
         public:
         private:
-            A m;
+            std::array<types::byte,49152> m;
+            // A m;
         };
     }
 }

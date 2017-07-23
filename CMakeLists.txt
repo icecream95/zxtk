@@ -138,6 +138,7 @@ if(COMPILE_TESTS)
             src/tests/test_buffer.cpp
             src/tests/test_register_set.cpp
             src/tests/test_cpu.cpp
+            src/tests/test_memory.cpp
     )
     add_subdirectory(src/lib/gtest)
     include_directories(src/lib/gtest/googletest/include)
