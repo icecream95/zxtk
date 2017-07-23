@@ -29,9 +29,11 @@ namespace zxtk {
         class Memory {
             types::byte g8 (types::pointer p) const {return m[p];}
             types::word g16 (types::pointer p) const {return *reinterpret_cast<const types::word*>(&m[p]);}
+            types::byte& r8 (types::pointer p) {return m[p];}
+            types::word& r16 (types::pointer p) {return *reinterpret_cast<types::word*>(&m[p]);}
         public:
         private:
-            std::array<types::byte,49152> m;
+            std::array<types::byte,65536> m;
             // A m;
         };
     }
