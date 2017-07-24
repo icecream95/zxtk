@@ -29,4 +29,4 @@ Possible features - these might not be added until after 1.0
  - Assembler
  - Utilities (similar to [fuse-emulator-utils](https://sourceforge.net/p/fuse-emulator/fuse-utils/ci/master/tree/)
  - BASIC parser
- - OS
+ - Operating System
