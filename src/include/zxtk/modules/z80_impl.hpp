@@ -27,14 +27,14 @@ namespace zxtk {
                 }
                 void ld_bc_nn() // 01
                 {
-                    // r.bc() = m.g16(++r.pc());
+                    r.bc() = m.g16(++r.pc());
                     r.pc() += 2;
                     clock(10);
                     // clock(m1,mem,mem);
                 }
                 void ld_addr_bc_a() // 02
                 {
-                    // m.r8(r.bc()) = r.a();
+                    m.r8(r.bc()) = r.a();
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
@@ -66,7 +66,7 @@ namespace zxtk {
                 }
                 void ld_b_n() // 05
                 {
-                    // r.b() = m.g8(++r.pc());
+                    r.b() = m.g8(++r.pc());
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
