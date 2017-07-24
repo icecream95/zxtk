@@ -7,9 +7,9 @@ ZX spectrum Tool Kit: a fast, efficient, capable, modular ZX Spectrum emulator
 
 Finished:
  - [x] Register set implementation
+ - [ ] Memory interface (not finalised, will be changed)
 
 Working on:
- - [x] Memory interface
  - [x] Z80 instructions
  - [ ] I/O interface
  - [ ] Spectrum ULA
