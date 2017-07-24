@@ -27,6 +27,6 @@ Possible features - these might not be added until after 1.0
  - Should memory have a buffer, allowing the z80 to run ahead of the ULA?
  - In-emulator [worldofspectrum.org](https://worldofspectrum.org) program downloader?
  - Assembler
- - Utilities (similar to [fuse-emulator-utils](https://sourceforge.net/p/fuse-emulator/fuse-utils/ci/master/tree/)
+ - Utilities (similar to [fuse-emulator-utils](https://sourceforge.net/p/fuse-emulator/fuse-utils/ci/master/tree/))
  - BASIC parser
  - Operating System
