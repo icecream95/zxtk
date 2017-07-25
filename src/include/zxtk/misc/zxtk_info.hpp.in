@@ -2,6 +2,6 @@
 
 namespace zxtk {
     namespace info {
-        const std::string load_name {"@LOAD_FILE@"};
+        static const std::string load_name() {return "@LOAD_FILE@";}
     }
 }
