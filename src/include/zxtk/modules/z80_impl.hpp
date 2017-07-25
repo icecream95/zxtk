@@ -56,7 +56,7 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void dec_b() // 04
+                void dec_b() // 05
                 {
                     --r.b();
                     // flagaffect (dec,r.b(),254);
@@ -64,7 +64,7 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void ld_b_n() // 05
+                void ld_b_n() // 06
                 {
                     r.b() = m.g8(++r.pc());
                     ++r.pc();
