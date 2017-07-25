@@ -49,7 +49,7 @@ namespace zxtk {
                 void inc_b() // 04
                 {
                     ++r.b();
-                    // flagaffect (r.b(),254);
+                    // flagaffect (inc,r.b(),254);
                     // ^~~~~~~~~~ any ideas for a better name for this function?
                     // The 254 is 11111110, or all the flags this instruction affects
                     ++r.pc();
