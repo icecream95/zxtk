@@ -59,7 +59,7 @@ namespace zxtk {
                 void dec_b() // 04
                 {
                     --r.b();
-                    // TODO: flagaffect call
+                    // flagaffect (dec,r.b(),254);
                     ++r.pc();
                     clock(4);
                     // clock(m1);
