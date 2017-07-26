@@ -100,7 +100,7 @@ namespace zxtk {
                 void ld_a_addr_bc()     // 012 (0A)
                 {
                     r.a() = m.g8(r.bc());
-                    ++r.pc()
+                    ++r.pc();
                     clock(7);
                 }
                 void dec_bc()           // 013 (0B)
