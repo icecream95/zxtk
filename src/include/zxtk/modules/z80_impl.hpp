@@ -81,6 +81,12 @@ namespace zxtk {
                     r.f() &= 254 | (((r.a() & 128) == 128)?1:0);
                     r.a() <<= 1;
                     r.a() |= tmp;
+                    clock(4);
+                }
+                void ex_af_alt_af() // 08
+                {
+                    r.ex_af_af();
+                    clock(4);
                 }
             protected:
                 R r;
