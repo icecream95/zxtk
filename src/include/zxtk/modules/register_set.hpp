@@ -31,12 +31,12 @@ namespace zxtk {
         public:
             Z80_register_set():st_af{0xffff},st_pc{0x0000} {}
 
-        // Most Z80 registers are not initialised, but they are initialised
-        // anyway (af and sp are set to ffff on startup and pc, iffs and iv
-        // are 0). We could add in realistic values where compilation flags
-        // (to simulate different z80's), time since last use and other things
-        // but really, I don't know of any use of this. Submit an issue if you
-        // want this feature
+            // Most Z80 registers are not initialised, but they are initialised
+            // anyway (af and sp are set to ffff on startup and pc, iffs and iv
+            // are 0). We could add in realistic values where compilation flags
+            // (to simulate different z80's), time since last use and other things
+            // but really, I don't know of any use of this. Submit an issue if you
+            // want this feature
 
             // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte& a() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::little_endian());}

@@ -71,6 +71,13 @@ namespace zxtk {
                     clock(7);
                     // clock(m1,mem);
                 }
+                void rlca() // 07
+                {
+                    // flagand (196);
+                    // flagcalc (1);
+                    // TODO: We need a Flag class for all this
+                    bool tmp = r.f() & 1;
+                }
             protected:
                 R r;
                 M m; // Ummm, should the CPU own the memory? TODO
