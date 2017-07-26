@@ -76,7 +76,11 @@ namespace zxtk {
                     // flagand (196);
                     // flagcalc (1);
                     // TODO: We need a Flag class for all this
+                    // rlca: Rotate Left Carry A
                     bool tmp = r.f() & 1;
+                    r.f() &= 254 | (((r.a() & 128) == 128)?1:0);
+                    r.a() <<= 1;
+                    r.a() |= tmp;
                 }
             protected:
                 R r;
