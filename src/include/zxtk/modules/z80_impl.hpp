@@ -15,7 +15,7 @@ namespace zxtk {
                 // I'm not using a table for memory, obviously!
                 using memory_type = M;
                 using register_type = R;
-                void nop() // 00
+                void nop()              // 000 (00)
                 {
 #ifdef ZXTK_Z80_CORRECT_TIMING
 #pragma NOSUCHPRAGMA NOTE: Correct timing feature has not been implemented yet, falling back to incorrect time. This will cause multicolour programs, and some others, to not work correctly
@@ -25,28 +25,28 @@ namespace zxtk {
                     // How about a syntax like this?
                     // clock(m1);
                 }
-                void ld_bc_nn() // 01
+                void ld_bc_nn()         // 001 (01)
                 {
                     r.bc() = m.g16(++r.pc());
                     r.pc() += 2;
                     clock(10);
                     // clock(m1,mem,mem);
                 }
-                void ld_addr_bc_a() // 02
+                void ld_addr_bc_a()     // 002 (02)
                 {
                     m.r8(r.bc()) = r.a();
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
                 }
-                void inc_bc() // 03
+                void inc_bc()           // 003 (03)
                 {
                     ++r.bc();
                     ++r.pc();
                     clock(6);
                     // clock(m1_6);
                 }
-                void inc_b() // 04
+                void inc_b()            // 004 (04)
                 {
                     ++r.b();
                     // flagaffect (inc,r.b(),254);
@@ -56,7 +56,7 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void dec_b() // 05
+                void dec_b()            // 005 (05)
                 {
                     --r.b();
                     // flagaffect (dec,r.b(),254);
@@ -64,14 +64,14 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void ld_b_n() // 06
+                void ld_b_n()           // 006 (06)
                 {
                     r.b() = m.g8(++r.pc());
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
                 }
-                void rlca() // 07
+                void rlca()             // 007 (07)
                 {
                     // flagand (196);
                     // flagcalc (1);
@@ -83,33 +83,33 @@ namespace zxtk {
                     ++r.pc();
                     clock(4);
                 }
-                void ex_af_alt_af() // 08
+                void ex_af_alt_af()     // 010 (08)
                 {
                     r.ex_af_af();
                     ++r.pc();
                     clock(4);
                 }
-                void add_hl_bc() // 09
+                void add_hl_bc()        // 011 (09)
                 {
                     r.hl() += r.bc();
                     // Flags: C,N,H
                     ++r.pc();
                     clock(11);
                 }
-                void ld_a_addr_bc() // 0A
+                void ld_a_addr_bc()     // 012 (0A)
                 {
                     r.a() = m.g8(r.bc());
                     ++r.pc()
                     clock(7);
                 }
-                void dec_bc() // 0B
+                void dec_bc()           // 013 (0B)
                 {
                     --r.bc();
                     ++r.pc();
                     clock(6);
                     // clock(m1_6);
                 }
-                void inc_c() // 0C
+                void inc_c()            // 014 (0C)
                 {
                     ++r.c();
                     // flagaffect (inc,r.c(),254);
@@ -119,7 +119,7 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void dec_c() // 0D
+                void dec_c()            // 015 (0D)
                 {
                     --r.c();
                     // flagaffect (dec,r.c(),254);
@@ -127,14 +127,14 @@ namespace zxtk {
                     clock(4);
                     // clock(m1);
                 }
-                void ld_c_n() // 0E
+                void ld_c_n()           // 016 (0E)
                 {
                     r.c() = m.g8(++r.pc());
                     ++r.pc();
                     clock(7);
                     // clock(m1,mem);
                 }
-                void rrca() // 0F
+                void rrca()             // 017 (0F)
                 {
                     // flagand (196);
                     // flagcalc (1);
