@@ -15,6 +15,7 @@ namespace zxtk {
                 // I'm not using a table for memory, obviously!
                 using memory_type = M;
                 using register_type = R;
+                                        // oct (hex)
                 void nop()              // 000 (00)
                 {
 #ifdef ZXTK_Z80_CORRECT_TIMING
