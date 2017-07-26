@@ -76,16 +76,74 @@ namespace zxtk {
                     // flagand (196);
                     // flagcalc (1);
                     // TODO: We need a Flag class for all this
-                    // rlca: Rotate Left Carry A
                     bool tmp = r.f() & 1;
                     r.f() &= 254 | (((r.a() & 128) == 128)?1:0);
                     r.a() <<= 1;
                     r.a() |= tmp;
+                    ++r.pc();
                     clock(4);
                 }
                 void ex_af_alt_af() // 08
                 {
                     r.ex_af_af();
+                    ++r.pc();
+                    clock(4);
+                }
+                void add_hl_bc() // 09
+                {
+                    r.hl() += r.bc();
+                    // Flags: C,N,H
+                    ++r.pc();
+                    clock(11);
+                }
+                void ld_a_addr_bc() // 0A
+                {
+                    r.a() = m.g8(r.bc());
+                    ++r.pc()
+                    clock(7);
+                }
+                void dec_bc() // 0B
+                {
+                    --r.bc();
+                    ++r.pc();
+                    clock(6);
+                    // clock(m1_6);
+                }
+                void inc_c() // 0C
+                {
+                    ++r.c();
+                    // flagaffect (inc,r.c(),254);
+                    // ^~~~~~~~~~ any ideas for a better name for this function?
+                    // The 254 is 11111110, or all the flags this instruction affects
+                    ++r.pc();
+                    clock(4);
+                    // clock(m1);
+                }
+                void dec_c() // 0D
+                {
+                    --r.c();
+                    // flagaffect (dec,r.c(),254);
+                    ++r.pc();
+                    clock(4);
+                    // clock(m1);
+                }
+                void ld_c_n() // 0E
+                {
+                    r.c() = m.g8(++r.pc());
+                    ++r.pc();
+                    clock(7);
+                    // clock(m1,mem);
+                }
+                void rrca() // 0F
+                {
+                    // flagand (196);
+                    // flagcalc (1);
+                    // TODO: We need a Flag class for all this
+                    bool tmp = r.f() & 1;
+                    r.f() &= 254 | r.a() & 1;
+                    r.a() >>= 1;
+                    r.a() |= ((tmp==1)?128:0);
+                    ++r.pc();
                     clock(4);
                 }
             protected:

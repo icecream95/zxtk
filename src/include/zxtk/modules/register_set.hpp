@@ -38,6 +38,8 @@ namespace zxtk {
             // but really, I don't know of any use of this. Submit an issue if you
             // want this feature
 
+            // Flags (low bits first) carry, add/sub, parity, bit 3, half-carry, bit 5, zero, sign
+
             // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte& a() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::little_endian());}
             types::byte& f() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::big_endian());}
