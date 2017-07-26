@@ -1,6 +1,3 @@
-// zxtk/src/include/zxtk/utilities/buffer.hpp
-// Buffered storage module for zxtk
-
 #ifndef ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
 #define ZXTK_UTILITIES_BUFFER_INCLUDE_GUARD
 
@@ -11,7 +8,7 @@
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/utilities/utilities.hpp>
 
-namespace zxtk {                                              // Should this be in here?
+namespace zxtk { // Should this be in here?
     namespace buffer {
         // Should the priority type be templated? What about the tick type
         template <typename T, typename L = unsigned long long, typename P = int>

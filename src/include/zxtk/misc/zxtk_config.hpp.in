@@ -1,9 +1,7 @@
-// zxtk/$BUILD/src/include/zxtk/misc/zxtk_config.hpp
-
-#include <string>
-
 #ifndef ZXTK_MISC_ZXTK_CONFIG_INCLUDE_GUARD
 #define ZXTK_MISC_ZXTK_CONFIG_INCLUDE_GUARD
+
+#include <string>
 
 #define ZXTK_VERSION_MAJOR @ZXTK_VERSION_MAJOR@
 #define ZXTK_VERSION_MINOR @ZXTK_VERSION_MINOR@

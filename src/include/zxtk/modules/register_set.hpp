@@ -1,16 +1,16 @@
 #ifndef ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 #define ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 
-#include <zxtk/utilities/exchange.hpp>
-#include <zxtk/misc/zxtk_types.hpp>
-#include <zxtk/misc/zxtk_config.hpp>
 #include <utility>
 #include <cstddef>
 
+#include <zxtk/utilities/exchange.hpp>
+#include <zxtk/misc/zxtk_types.hpp>
+#include <zxtk/misc/zxtk_config.hpp>
+
 namespace zxtk {
     namespace register_set {
-        namespace impl
-        {
+        namespace impl {
 #ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
             constexpr 
 #endif

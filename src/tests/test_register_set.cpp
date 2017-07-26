@@ -1,11 +1,12 @@
+#include <iostream>
+
 #include <gtest/gtest.h>
+
 #include <zxtk/modules/register_set.hpp>
 
-#include <iostream>
 using namespace std;
 
-struct RegisterSet : ::testing::Test
-{
+struct RegisterSet : ::testing::Test {
     zxtk::register_set::Z80_register_set rset;
 };
 

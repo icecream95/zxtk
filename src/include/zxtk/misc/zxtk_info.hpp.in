@@ -1,3 +1,6 @@
+#ifndef ZXTK_MISC_ZXTK_INFO_INCLUDE_GUARD
+#define ZXTK_MISC_ZXTK_INFO_INCLUDE_GUARD
+
 #include <string>
 
 namespace zxtk {
@@ -5,3 +8,5 @@ namespace zxtk {
         static const std::string load_name() {return "@LOAD_FILE@";}
     }
 }
+
+#endif

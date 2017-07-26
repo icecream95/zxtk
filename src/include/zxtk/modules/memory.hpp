@@ -9,14 +9,12 @@
 namespace zxtk {
     namespace memory {
         template<typename M = types::pointer, typename B = types::cycle>
-        class Memory_array { // TODO
-        };
+        class Memory_array { /* TODO */ };
 
-        class Memory_array_spectrum { // TODO
-        };
+        class Memory_array_spectrum { /* TODO */ };
 
         template<types::pointer S>
-        class Basic_memory_array_test { // TODO: Remove this when Memory_Array is done
+        class Basic_memory_array_test { // NOTE: Remove this when Memory_Array is done
         public:
             // NOTE: The memory interface is not finalised, and will be changed long before v1.0
             std::array<types::byte,S>& get_mem() {return memory;}

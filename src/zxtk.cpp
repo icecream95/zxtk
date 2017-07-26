@@ -1,6 +1,8 @@
 #include <zxtk/load.hpp> /* MUST be the first in include order to allow disabling modules by defining include guards */
+// This doesn't need to be first in the include order, it should be the INCLUDE_FILE.
 
 #include <iostream>
+
 #include <zxtk/misc/zxtk_config.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/misc/zxtk_info.hpp>
@@ -24,7 +26,7 @@ namespace zxtk {
             std::cout << "NOTE: fast z80 option is enabled; crashes may (will probably) occur\n";
 #else
 #ifndef ZXTK_Z80_CORRECT_TIMING
-            std::cout << "NOTE: correct timing is disabled. Multicolour programs might not work\n";
+            std::cout << "NOTE: correct timing is disabled. Multicolour programs probably won't work\n";
 #endif
 #endif
            std::cout << '\n';
