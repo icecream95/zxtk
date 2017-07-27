@@ -20,7 +20,9 @@ namespace zxtk {
 #endif
             std::cout << "enabled\n\n";
             std::cout << "The type of a byte is " << zxtk::types::names::byte_name() << '\n';
-            std::cout << "The type of an address is " << zxtk::types::names::pointer_name() << "\n\n";
+            std::cout << "The type of a word is" << zxtk::types::names::word_name() << "\n";
+            std::cout << "The type of an address is " << zxtk::types::names::pointer_name() << "\n";
+            std::cout << "The type of a cycle is" << zxtk::types::names::cycle_name() << "\n\n";
             std::cout << "The load module being used is called " << zxtk::info::load_name() << "\n";
 #ifdef ZXTK_Z80_FASTEST
             std::cout << "NOTE: fast z80 option is enabled; crashes may (will probably) occur\n";
