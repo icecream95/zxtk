@@ -11,7 +11,15 @@ namespace zxtk {
         namespace impl {
             template <typename M = memory::Memory, typename R = register_set::Z80_register_set>
             // In the future, the memory type will be a memory client type, so
-            // timing can be implemented correctly
+            // timing can be implemented correctly. The memory client will
+            // either be created in the constructor or by the code calling it.
+            // The latter could enable some interesting timing clashes but makes
+            // control easier. I'm going to do some tests to see if I can just
+            // make it so the memory has an explicit constructor but an implicit
+            // conversion to the client. This could be confusing in some cases,
+            // so this solution isn't finalised. I could just force it to be
+            // explicit, but no-one likes that, do they? I'm open to any
+            // suggestions for this problem.
             struct Default_cpu_impl {
                 Default_cpu_impl(M& memory) :m{memory} {}
                 // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
