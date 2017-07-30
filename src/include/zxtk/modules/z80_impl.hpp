@@ -152,7 +152,7 @@ namespace zxtk {
                     // flagcalc (1);
                     // TODO: We need a Flag class for all this
                     bool tmp = r.f() & 1;
-                    r.f() &= 254 | r.a() & 1;
+                    r.f() &= 254 | (r.a() & 1);
                     r.a() >>= 1;
                     r.a() |= ((tmp==1)?128:0);
                     ++r.pc();
