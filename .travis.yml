@@ -27,10 +27,10 @@ matrix:
           sources:
             - llvm-toolchain-trusty
           packages:
-            - clang-5.0
+            - clang-6.0
             - libsdl2-dev
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
         - COMPILER_ID="clang"
         - SET_CMAKE_CXX_FLAGS='-Wall -Wextra -Wpedantic -std=c++1z'
         - DO_DEPLOY="y"
