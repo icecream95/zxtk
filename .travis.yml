@@ -105,12 +105,13 @@ script:
   - mkdir -p build
   - cd build
   - cmake .. -DCMAKE_CXX_FLAGS="${SET_CMAKE_CXX_FLAGS}" -DCMAKE_INSTALL_PREFIX='../install'
-  - make -j8
+  - make -j8 2>&1 | tee log.txt
   - make install
   - cd ..
   - mkdir zxtk
   - cd zxtk
   - tar cjvf zxtk_amd64.tar.gz ../install
+  - mv ../build/log.txt .
   - ../build/tests
   - if [ "${CODE_COV}" == "y" ];then cd .. && sh -e get_code_cov.sh && codecov;fi
 after_success:

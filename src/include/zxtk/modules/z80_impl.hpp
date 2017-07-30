@@ -163,7 +163,7 @@ namespace zxtk {
                 M& m;
                 types::cycle diff_cycle (types::cycle, types::cycle) {return 0;} // TODO
                 types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
-                types::cycle mcycle() { /*...*/ return 0;} // TODO
+                types::cycle mcycle() { /*...*/; return 0;} // TODO
                 void clock(types::cycle i)
                     {
 #ifdef ZXTK_THREADS_TRUE
