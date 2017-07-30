@@ -10,7 +10,10 @@ namespace zxtk {
     namespace cpu {
         namespace impl {
             template <typename M = memory::Memory, typename R = register_set::Z80_register_set>
+            // In the future, the memory type will be a memory client type, so
+            // timing can be implemented correctly
             struct Default_cpu_impl {
+                Default_cpu_impl(M& memory) :m{memory} {}
                 // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
                 // I'm not using a table for memory, obviously!
                 using memory_type = M;
@@ -149,7 +152,7 @@ namespace zxtk {
                 }
             protected:
                 R r;
-                M m; // Ummm, should the CPU own the memory? TODO
+                M& m;
                 types::cycle diff_cycle (types::cycle, types::cycle) {return 0;} // TODO
                 types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
                 types::cycle mcycle() { /*...*/ return 0;} // TODO
