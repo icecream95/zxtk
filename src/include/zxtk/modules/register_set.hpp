@@ -29,8 +29,6 @@ namespace zxtk {
         class Z80_register_set
         {
         public:
-            Z80_register_set():st_af{0xffff},st_pc{0x0000} {}
-
             // Most Z80 registers are not initialised, but they are initialised
             // anyway (af and sp are set to ffff on startup and pc, iffs and iv
             // are 0). We could add in realistic values where compilation flags
