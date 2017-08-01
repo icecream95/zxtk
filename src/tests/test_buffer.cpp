@@ -1,9 +1,9 @@
+#include <iostream>
+
 #include <gtest/gtest.h>
 
 #include <zxtk/utilities/buffer.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
-
-#include <iostream>
 
 using namespace std;
 

@@ -1,16 +1,16 @@
 #ifndef ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 #define ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 
-#include <zxtk/utilities/exchange.hpp>
-#include <zxtk/misc/zxtk_types.hpp>
-#include <zxtk/misc/zxtk_config.hpp>
 #include <utility>
 #include <cstddef>
 
+#include <zxtk/utilities/exchange.hpp>
+#include <zxtk/misc/zxtk_types.hpp>
+#include <zxtk/misc/zxtk_config.hpp>
+
 namespace zxtk {
     namespace register_set {
-        namespace impl
-        {
+        namespace impl {
 #ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
             constexpr 
 #endif
@@ -29,14 +29,14 @@ namespace zxtk {
         class Z80_register_set
         {
         public:
-            Z80_register_set():st_af{0xffff},st_pc{0x0000} {}
+            // Most Z80 registers are not initialised, but they are initialised
+            // anyway (af and sp are set to ffff on startup and pc, iffs and iv
+            // are 0). We could add in realistic values where compilation flags
+            // (to simulate different z80's), time since last use and other things
+            // but really, I don't know of any use of this. Submit an issue if you
+            // want this feature
 
-        // Most Z80 registers are not initialised, but they are initialised
-        // anyway (af and sp are set to ffff on startup and pc, iffs and iv
-        // are 0). We could add in realistic values where compilation flags
-        // (to simulate different z80's), time since last use and other things
-        // but really, I don't know of any use of this. Submit an issue if you
-        // want this feature
+            // Flags (low bits first) carry, add/sub, parity, bit 3, half-carry, bit 5, zero, sign
 
             // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte& a() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::little_endian());}
