@@ -165,15 +165,15 @@ namespace zxtk {
                 types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
                 types::cycle mcycle() { /*...*/; return 0;} // TODO
                 void clock(types::cycle i)
-                    {
+                {
 #ifdef ZXTK_THREADS_TRUE
-                        if (diff_cycle(mcycle(),cycle)>i)
-                            cycle += i;
+                    if (diff_cycle(mcycle(),cycle)>i)
+                        cycle += i;
 #else
 #error Single thread excectuion has not been implemented yet
 // TODO: Implement single thread excectuion
 #endif
-                    }
+                }
             };
         }
     }

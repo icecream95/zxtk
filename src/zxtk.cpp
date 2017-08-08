@@ -42,9 +42,8 @@ int main ()
     try {
         return zxtk::core::run();
     }
-    catch (...)
-    {
+    catch (...) {
         std::cout << "Exception caught in main. Exiting...\n\n";
-        return 1;
+        throw; // Let the OS handle the exception
     }
 }
