@@ -2,8 +2,7 @@
 rem install sdl from http://www.libsdl.org/release/SDL2-2.0.5-win32-x64.zip
 CD /D %~dp0
 
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 IF NOT EXIST install md install
 IF NOT EXIST build64 md build64
