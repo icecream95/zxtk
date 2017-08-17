@@ -26,6 +26,7 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty
+            - ubuntu-toolchain-r-test
           packages:
             - clang-6.0
             - libsdl2-dev
