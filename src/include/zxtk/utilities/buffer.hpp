@@ -11,16 +11,16 @@
 namespace zxtk { // Should this be in here?
     namespace buffer {
         // Should the priority type be templated? What about the tick type
-        template <typename T, typename L = unsigned long long, typename P = int>
+        template<typename T, typename L = unsigned long long, typename P = int>
         class Buf_access_info {
         public:
-            template <typename N>
+            template<typename N>
             bool operator<(const Buf_access_info<T,L,N>& b) const
             {
                 return use_tick > b.use_tick || (use_tick == b.use_tick && priority > b.priority);
                 // Note the switch around - the earlier a Buf_access_info is going to be used, the higher the comparative value
             }
-            template <typename N>
+            template<typename N>
             bool operator==(const Buf_access_info<T,L,N>& b) const
             {
                 return use_tick == b.use_tick && data == b.data && addr == b.addr && priority == b.priority;
@@ -35,7 +35,7 @@ namespace zxtk { // Should this be in here?
             int priority;                                           // Lower priorities will be used first
         };
 
-        template <typename T, std::size_t N, typename C = std::array<T,N>,bool O = true,
+        template<typename T, std::size_t N, typename C = std::array<T,N>,bool O = true,
         typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
         class Buffer_store {
         public:
@@ -54,7 +54,7 @@ namespace zxtk { // Should this be in here?
             Q queue;
         };
 
-        template <typename T, typename L>   // etc. // Should the priority and read/write permissions be templated?
+        template<typename T, typename L>   // etc. // Should the priority and read/write permissions be templated?
         class Buffer_client {
             // blah blah blah
         };
