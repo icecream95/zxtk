@@ -1,3 +1,9 @@
+// zxtk/src/include/zxtk/misc/zxtk_options.hpp.in
+// MIT License
+// Copyright (c) 2017 icecream95 (icecream95.github.io)
+// Upstream URL: https://github.com/icecream95/zxtk/blob/master/src/include/zxtk/misc/zxtk_options.hpp.in
+// (raw: https://raw.githubusercontent.com/icecream95/zxtk/master/src/include/zxtk/misc/zxtk_options.hpp.in)
+
 #ifndef ZXTK_MISC_OPTIONS_INCLUDE_GUARD
 #define ZXTK_MISC_OPTIONS_INCLUDE_GUARD
 

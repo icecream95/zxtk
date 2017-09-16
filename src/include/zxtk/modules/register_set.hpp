@@ -1,3 +1,9 @@
+// zxtk/src/include/zxtk/modules/register_set.hpp
+// MIT License
+// Copyright (c) 2017 icecream95 (icecream95.github.io)
+// Upstream URL: https://github.com/icecream95/zxtk/blob/master/src/include/zxtk/modules/register_set.hpp
+// (raw: https://raw.githubusercontent.com/icecream95/zxtk/master/src/include/zxtk/modules/register_set.hpp)
+
 #ifndef ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 #define ZXTK_UTILITIES_MODULES_REGISTER_SET_INCLUDE_GUARD
 

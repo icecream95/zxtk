@@ -1,6 +1,6 @@
 # sdl2 cmake project-config input for ./configure scripts
 
-set(prefix "/usr") 
+set(prefix "/usr")
 set(exec_prefix "${prefix}")
 set(libdir "${exec_prefix}/lib")
 set(SDL2_PREFIX "/usr")

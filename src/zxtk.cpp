@@ -1,3 +1,9 @@
+// zxtk/src/zxtk.cpp
+// MIT License
+// Copyright (c) 2017 icecream95 (icecream95.github.io)
+// Upstream URL: https://github.com/icecream95/zxtk/blob/master/src/zxtk.cpp
+// (raw: https://raw.githubusercontent.com/icecream95/zxtk/master/src/zxtk.cpp)
+
 #include <zxtk/load.hpp> /* MUST be the first in include order to allow disabling modules by defining include guards */
 // This doesn't need to be first in the include order, it should be the INCLUDE_FILE.
 
