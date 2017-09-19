@@ -71,6 +71,14 @@ namespace zxtk { // Should this be in here?
 
         template<typename T, typename L> // etc.
         // Should the priority and read/write permissions be templated?
+        // If so, we should also have a dynamic version
+        // We should store a cache of the array at the current tick so if
+        //     monitoring devices which are slow are attached, the global tick
+        //     won't have to wait, just pass the popped entries from the
+        //     priority_queue, possibly into a deque, and store a slowest tick
+        //     value in the buffer_store. A depue would be better than a normal
+        //     queue as none of the "slow" clients would have to wait for each
+        //     other.
         class Buffer_client {
         };
     }
