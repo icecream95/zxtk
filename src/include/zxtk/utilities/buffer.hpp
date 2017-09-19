@@ -48,21 +48,30 @@ namespace zxtk { // Should this be in here?
             template<typename U, typename M>
             friend class Buffer_client;
             using tick_type = L;
-            // Note the absence of usual stuff like value_type TODO: Make a class Buffer_timepoint for giving data to things that don't know about timing
+            // Note the absence of usual stuff like value_type
+            // TODO: Make a class Buffer_timepoint for giving data to
+            //     things that don't know about timing
             constexpr static L max_tick_diff = std::numeric_limits<L>::max()/2;
-            // Should write operations be avaliable here or should we require making a Buffer_user class or something like that?
-            // The latter has the advantage of being able to optimise the case where there is only one user with write access (which is quite common) but has a small memory footprint. The problem with this optimisation is that there is either a performance, memory or features disadvantage
+            // Should write operations be avaliable here or should we
+            //     require making a Buffer_user class or something
+            //     like that?
+            // The latter has the advantage of being able to optimise
+            //     the case where there is only one user with write
+            //     access (which is quite common) but has a small
+            //     memory footprint. The problem with this
+            //     optimisation is that there is either a performance,
+            //     memory or features disadvantage.
         private:
             bool read_only {false};
             tick_type current_tick {0};
             bool tick_was_over {false};
-            C data;
-            Q queue;
+            C data;  // C defaults to an array<T,N>
+            Q queue; // Q defaults to a priority_queue<Buf_access_info<T,L>>
         };
 
-        template<typename T, typename L>   // etc. // Should the priority and read/write permissions be templated?
+        template<typename T, typename L> // etc.
+        // Should the priority and read/write permissions be templated?
         class Buffer_client {
-            // blah blah blah
         };
     }
 }
