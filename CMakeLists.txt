@@ -1,7 +1,3 @@
-# MIT License
-# Copyright (c) 2017 icecream95 (https://icecream95.github.io)
-# Upstream URL: https://github.com/icecream95/zxtk/blob/master/CMakeLists.txt
-
 cmake_minimum_required (VERSION 2.6)
 project (zxtk)
 message(STATUS "Configuring zxtk...")

@@ -1,9 +1,3 @@
-// zxtk/src/include/zxtk/utilities/exchange.hpp
-// MIT License
-// Copyright (c) 2017 icecream95 (icecream95.github.io)
-// Upstream URL: https://github.com/icecream95/zxtk/blob/master/src/include/zxtk/utilities/exchange.hpp
-// (raw: https://raw.githubusercontent.com/icecream95/zxtk/master/src/include/zxtk/utilities/exchange.hpp)
-
 #ifndef ZXTK_UTILITIES_EXCHANGE_INCLUDE_GUARD
 #define ZXTK_UTILITIES_EXCHANGE_INCLUDE_GUARD
 
