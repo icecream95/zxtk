@@ -9,7 +9,7 @@
 #include <zxtk/utilities/buffer.hpp>
 #include <zxtk/modules/register_set.hpp>
 
-#include <boost/asio.hpp>
+// #include <boost/asio.hpp>
 
 namespace zxtk {
     namespace core {
