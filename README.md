@@ -16,7 +16,7 @@ Working on:
  - [ ] File interface
  - [ ] Mod interface
  - [ ] Graphics interface
- 
+
 
 Points of discussion - feel free to open an issue on your thoughts about these:
  - The use of lowercase namespace names - sorry Bjarne, but I think it looks neater
