@@ -12,8 +12,13 @@ namespace zxtk {
     namespace register_set {
         namespace impl {
 #ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
-            constexpr 
+            constexpr
 #endif
+            /*! Checks if the system is little endian using shift operations
+                This is normally constexpr, but runtime checking can be enabled
+                    with a CMake option.
+                Note that this is untested for big endian architectures.
+                \sa big_endian() */
             types::byte little_endian()
             {
                 return ((std::uint16_t{1}>>8)>0)?0:1;
@@ -21,20 +26,30 @@ namespace zxtk {
 #ifdef ZXTK_ENDIANNESS_COMPILE_TIME_CHECK
             constexpr
 #endif
+            /*! Checks if the system is big endian using shift operations
+              This is normally constexpr, but runtime checking can be enabled
+                  with a CMake option.
+              Note that this is untested for big endian architectures.
+              \sa little_endian() */
             types::byte big_endian()
             {
                 return ((std::uint16_t{1}>>8)>0)?1:0;
             }
         }
+
+        /*! This class is for the storing the z80 register set.
+         *  Most of the classes except those specifically documented return a
+         *  register as a reference. */
         class Z80_register_set
         {
         public:
-            // Most Z80 registers are not initialised, but they are initialised
-            // anyway (af and sp are set to ffff on startup and pc, iffs and iv
-            // are 0). We could add in realistic values where compilation flags
-            // (to simulate different z80's), time since last use and other things
-            // but really, I don't know of any use of this. Submit an issue if you
-            // want this feature
+            /*! \class Z80_register_set
+              Most Z80 registers are not initialised, but they are initialised
+              anyway (af and sp are set to ffff on startup and pc, iffs and iv
+              are 0). We could add in realistic values where compilation flags
+              (to simulate different z80's), time since last use and other things
+              but really, I don't know of any use of this. Submit an issue if you
+              want this feature */
 
             // Flags (low bits first) carry, add/sub, parity, bit 3, half-carry, bit 5, zero, sign
 
@@ -61,10 +76,25 @@ namespace zxtk {
             types::word& pc() {return st_pc;}
             types::byte& i() {return st_i;}
             types::byte& r() {return st_r;}
+            /*! Returns interrupt flip-flop
+                \sa iff() */
             bool& iff1() {return st_iff1;}
+            /*! Returns interrupt flip-flop 2 */
             bool& iff2() {return st_iff2;}
+
+            /*! Swaps the bc, de and hl registers with bc', de' and hl' respectively */
             void exx() {std::swap(st_bc,st_bc_a);std::swap(st_de,st_de_a);std::swap(st_hl,st_hl_a);}
+            /*! Swaps af with af' */
             void ex_af_af() {std::swap(st_af, st_af_a);}
+            /*! Returns interrupt flip-flop 1
+                \sa iff1() */
+            bool iff() const {return st_iff1;}
+            /*! Returns the interrupt mode */
+            types::byte get_im() const {return st_im;}
+            /*! Stores the interrupt mode
+                If b is not valid (0, 1 or 2) the interrupt mode is unchanged */
+            void store_im(types::byte b) {switch(b){case 0: case 1: case 2: st_im = b;default:;}}
+
             // const versions
             types::byte a() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::little_endian());}
             types::byte f() const {return *(reinterpret_cast<const types::byte*>(&st_af)+impl::big_endian());}
@@ -88,9 +118,6 @@ namespace zxtk {
             types::word pc() const {return st_pc;}
             types::byte i() const {return st_i;}
             types::byte r() const {return st_r;}
-            bool iff() const {return st_iff1;}
-            types::byte get_im() const {return st_im;}
-            void store_im(types::byte b) {switch(b){case 0: case 1: case 2: st_im = b;default:;}}
         protected:
             types::word st_af {0xffff};
             types::word st_bc {0xffff};

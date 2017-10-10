@@ -1,3 +1,6 @@
+/*! \mainpage zxtk
+ */
+
 #include <zxtk/load.hpp> /* MUST be the first in include order to allow disabling modules by defining include guards */
 // This doesn't need to be first in the include order, it should be the INCLUDE_FILE.
 
