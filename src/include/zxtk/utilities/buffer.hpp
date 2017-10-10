@@ -17,13 +17,16 @@ namespace zxtk { // Should this be in here?
             template<typename N>
             bool operator<(const Buf_access_info<T,L,N>& b) const
             {
-                return use_tick > b.use_tick || (use_tick == b.use_tick && priority > b.priority);
-                // Note the switch around - the earlier a Buf_access_info is going to be used, the higher the comparative value
+                return use_tick > b.use_tick ||
+                          (use_tick == b.use_tick && priority > b.priority);
+                // Note the switch around - the earlier a Buf_access_info is
+                //     going to be used, the higher the comparative value
             }
             template<typename N>
             bool operator==(const Buf_access_info<T,L,N>& b) const
             {
-                return use_tick == b.use_tick && data == b.data && addr == b.addr && priority == b.priority;
+                return use_tick == b.use_tick && data == b.data &&
+                    addr == b.addr && priority == b.priority;
                 // Should we test the priority here?
             }
             // TODO: More comparison operators
@@ -32,15 +35,18 @@ namespace zxtk { // Should this be in here?
             L use_tick;
             T data;
             zxtk::types::pointer addr;
-            int priority;                                           // Lower priorities will be used first
+            int priority; // Lower priorities will be used first
         };
 
-        template<typename T, std::size_t N, typename C = std::array<T,N>, bool O = true,
-        typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
-        // We need a deque to store changes that have been added but not yet synced with all the clients
+        template<typename T, std::size_t N, typename C = std::array<T,N>,
+                 bool O = true, typename L = unsigned long long,
+                 typename Q = std::priority_queue<Buf_access_info<T,L>>>
+        // We need a deque to store changes that have been added but not yet
+        //     synced with all the clients
         class Buffer_store {
         public:
-            template<typename U, std::size_t P, typename D, bool R, typename M, typename S>
+            template<typename U, std::size_t P, typename D, bool R, typename M,
+                     typename S>
             friend class Buffer_client;
 
             using tick_type = L;
@@ -65,8 +71,9 @@ namespace zxtk { // Should this be in here?
             Q queue; // Q defaults to a priority_queue<Buf_access_info<T,L>>
         };
 
-        template<typename T, std::size_t N, typename C = std::array<T,N>, bool O = true,
-                 typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
+        template<typename T, std::size_t N, typename C = std::array<T,N>,
+                 bool O = true, typename L = unsigned long long,
+                 typename Q = std::priority_queue<Buf_access_info<T,L>>>
         // We should store a cache of the array at the current tick so if
         //     monitoring devices which are slow are attached, the global tick
         //     won't have to wait, just pass the popped entries from the
@@ -77,14 +84,18 @@ namespace zxtk { // Should this be in here?
         class Buffer_client {
         public:
             Buffer_client(Buffer_store<T, N, C, O, L, Q>);
-            // There will be multiple types of Buffer_store, such as a Buffer_slice and Buffer_multi [possibly with other names],
-            //     so we should allow these. Should a wrapper class or std::variant be used?
+            // There will be multiple types of Buffer_store, such as a
+            //     Buffer_slice and Buffer_multi [possibly with other names],
+            //     so we should allow these. Should a wrapper class or
+            //     std::variant be used?
         };
 
 
-        template<typename T, std::size_t N, typename C = std::array<T,N>, bool O = true,
-                 typename L = unsigned long long, typename Q = std::priority_queue<Buf_access_info<T,L>>>
-        Buffer_client<T, N, C, O, L, Q> make_buffer(Buffer_store<T, N, C, O, L, Q>& s)
+        template<typename T, std::size_t N, typename C = std::array<T,N>,
+                 bool O = true, typename L = unsigned long long,
+                 typename Q = std::priority_queue<Buf_access_info<T,L>>>
+        Buffer_client<T, N, C, O, L, Q> make_buffer(Buffer_store<T, N, C, O, L,
+                                                    Q>& s)
         {
             return {s};
         }
