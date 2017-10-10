@@ -6,6 +6,10 @@
 #include <zxtk/modules/register_set.hpp>
 #include <zxtk/modules/memory.hpp>
 
+/*! \file z80_impl.hpp
+  Implementation for the z80 chip
+*/
+
 namespace zxtk {
     namespace cpu {
         namespace impl {

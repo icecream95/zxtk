@@ -8,6 +8,10 @@
 #include <zxtk/misc/zxtk_types.hpp>
 #include <zxtk/misc/zxtk_config.hpp>
 
+/*! \file register_set.hpp
+  Defines the class for the z80 register set
+ */
+
 namespace zxtk {
     namespace register_set {
         namespace impl {
