@@ -6,14 +6,20 @@
 #include <zxtk/utilities/buffer.hpp>
 #include <zxtk/misc/zxtk_types.hpp>
 
+/*! \file memory.hpp
+  This file defines the classes for interacting with memory
+*/
+
 namespace zxtk {
     namespace memory {
+        /*! TODO */
         template<typename M = types::pointer, typename B = types::cycle>
-        class Memory_array { /* TODO */ };
+        class Memory_array {};
 
-        class Memory_array_spectrum { /* TODO */ };
+        /*! TODO */
+        class Memory_array_spectrum {};
 
-        template<types::pointer S>
+        template<types::pointer S> // No, this isn't a bug
         class Basic_memory_array_test { // NOTE: Remove this when Memory_Array is done
         public:
             // NOTE: The memory interface is not finalised, and will be changed long before v1.0

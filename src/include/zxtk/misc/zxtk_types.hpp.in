@@ -4,6 +4,11 @@
 #include <cstdint>
 #include <cstddef>
 
+/*! \file zxtk_types.hpp.in
+  This file defines some types used by zxtk
+  The types are byte, word, pointer and cycle
+ */
+
 namespace zxtk {    // This is a (sort of) standalone utility. Should this be in namespace zxtk? I'm not that sure.
     struct types { // NOTE: This is a fake namespace
         struct names {

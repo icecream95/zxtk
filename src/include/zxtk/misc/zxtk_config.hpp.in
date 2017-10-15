@@ -1,6 +1,14 @@
 #ifndef ZXTK_MISC_ZXTK_CONFIG_INCLUDE_GUARD
 #define ZXTK_MISC_ZXTK_CONFIG_INCLUDE_GUARD
 
+/*! \file zxtk_config.hpp.in
+    \brief Provides zxtk config and versioning information
+
+    This file defines major, minor and update versioning information and whether
+        zxtk was compiled with SDL, constexpr endainness, correct timing, fast
+        mode and multiple threads.
+*/
+
 #include <string>
 
 #define ZXTK_VERSION_MAJOR @ZXTK_VERSION_MAJOR@
@@ -18,8 +26,9 @@ namespace zxtk {
 }
 
 
-// Unfortunately, this has to be in the global namespace due to limitation with
-// preprocessor directives
+/*! \fn constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rhs )
+  Unfortunately, this has to be in the global namespace due to a limitation with preprocessor directives
+*/
 constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rhs )
 {
     return (('\0' == lhs[0]) && ('\0' == rhs[0])) ? 0

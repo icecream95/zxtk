@@ -16,7 +16,7 @@ Working on:
  - [ ] File interface
  - [ ] Mod interface
  - [ ] Graphics interface
- 
+
 
 Points of discussion - feel free to open an issue on your thoughts about these:
  - The use of lowercase namespace names - sorry Bjarne, but I think it looks neater
@@ -30,3 +30,5 @@ Possible features - these might not be added until after 1.0
  - Utilities (similar to [fuse-emulator-utils](https://sourceforge.net/p/fuse-emulator/fuse-utils/ci/master/tree/))
  - BASIC parser
  - Operating System
+
+For build instructions and other things, look at the [zxtk wiki](https://github.com/icecream95/zxtk/wiki).
