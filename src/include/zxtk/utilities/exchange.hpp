@@ -12,7 +12,8 @@
 namespace zxtk {
 
 #if _cplusplus < 201402L
-    /*! \fn exchange template<class T, class U = T> T exchange(T& obj, U&& new_value)
+    /*! \fn exchange template<class T, class U = T> T exchange(T& obj,
+                                                               U&& new_value)
       See std::exchange */
     template<class T, class U = T>
     T exchange(T& obj, U&& new_value)

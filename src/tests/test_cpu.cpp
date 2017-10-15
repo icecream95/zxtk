@@ -11,7 +11,10 @@ using namespace std;
 
 struct Z80 : ::testing::Test {
     zxtk::cpu::Z80 z;
-    zxtk::cpu::impl::Default_cpu_impl<zxtk::memory::Memory,zxtk::register_set::Z80_register_set> zi; // Ouch. Why is this needed? The class has default template arguments. I think that I've messed something up in the CPU side of things
+    zxtk::cpu::impl::Default_cpu_impl<zxtk::memory::Memory,
+                                      zxtk::register_set::Z80_register_set> zi;
+    // Ouch. Why is this needed? The class has default template arguments.
+    // I think that I've messed something up in the CPU side of things
 };
 
 TEST(Z80, DefaultConstructor)

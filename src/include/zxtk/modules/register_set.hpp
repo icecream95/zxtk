@@ -51,13 +51,15 @@ namespace zxtk {
               Most Z80 registers are not initialised, but they are initialised
               anyway (af and sp are set to ffff on startup and pc, iffs and iv
               are 0). We could add in realistic values where compilation flags
-              (to simulate different z80's), time since last use and other things
-              but really, I don't know of any use of this. Submit an issue if you
-              want this feature */
+              (to simulate different z80's), time since last use and other
+              things but really, I don't know of any use of this. Submit an
+              issue if you want this feature */
 
-            // Flags (low bits first) carry, add/sub, parity, bit 3, half-carry, bit 5, zero, sign
+            // Flags (low bits first) carry, add/sub, parity, bit 3,
+            //                        half-carry, bit 5, zero, sign
 
-            // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
+            // WARNING: THIS IS NOT THREAD SAFE. WRITING TO THIS FROM SOMETHING
+            //     OTHER THAN THE CPU OR I/O IS NOT RECOMMENDED
             types::byte& a() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::little_endian());}
             types::byte& f() {return *(reinterpret_cast<types::byte*>(&st_af)+impl::big_endian());}
             types::byte& b() {return *(reinterpret_cast<types::byte*>(&st_bc)+impl::little_endian());}
@@ -86,7 +88,8 @@ namespace zxtk {
             /*! Returns interrupt flip-flop 2 */
             bool& iff2() {return st_iff2;}
 
-            /*! Swaps the bc, de and hl registers with bc', de' and hl' respectively */
+            /*! Swaps the bc, de and hl registers with bc', de' and hl'
+                    respectively */
             void exx() {std::swap(st_bc,st_bc_a);std::swap(st_de,st_de_a);std::swap(st_hl,st_hl_a);}
             /*! Swaps af with af' */
             void ex_af_af() {std::swap(st_af, st_af_a);}

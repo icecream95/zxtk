@@ -26,10 +26,13 @@ namespace zxtk {
 }
 
 
-/*! \fn constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rhs )
-  Unfortunately, this has to be in the global namespace due to a limitation with preprocessor directives
+/*! \fn constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs,
+                                                         char const* rhs )
+  Unfortunately, this has to be in the global namespace due to a limitation with
+  preprocessor directives
 */
-constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs, char const* rhs )
+constexpr int zxtk_implemenation_stuff_c_strcmp( char const* lhs,
+                                                 char const* rhs )
 {
     return (('\0' == lhs[0]) && ('\0' == rhs[0])) ? 0
     :  (lhs[0] != rhs[0]) ? (lhs[0] - rhs[0])

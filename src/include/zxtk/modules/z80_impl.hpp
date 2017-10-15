@@ -13,7 +13,8 @@
 namespace zxtk {
     namespace cpu {
         namespace impl {
-            template <typename M = memory::Memory, typename R = register_set::Z80_register_set>
+            template <typename M = memory::Memory,
+                      typename R = register_set::Z80_register_set>
             // In the future, the memory type will be a memory client type, so
             // timing can be implemented correctly. The memory client will
             // either be created in the constructor or by the code calling it.
@@ -26,7 +27,10 @@ namespace zxtk {
             // suggestions for this problem.
             struct Default_cpu_impl {
                 Default_cpu_impl(M& memory) :m{memory} {}
-                // I'm not using any sort of decode logic as a jump table is faster - the modern day equivalent to jp (hl) is faster than jp (hl), some bit decode stuff, and another jp, and a pointer decode (on register access)
+                // I'm not using any sort of decode logic as a jump table is
+                //     faster - the modern day equivalent to jp (hl) is faster
+                //     than jp (hl), some bit decode stuff, and another jp, and
+                //     a pointer decode (on register access)
                 // I'm not using a table for memory, obviously!
                 using memory_type = M;
                 using register_type = R;
@@ -37,7 +41,9 @@ namespace zxtk {
 #pragma NOSUCHPRAGMA NOTE: Correct timing feature has not been implemented yet, falling back to incorrect time. This will cause multicolour programs, and some others, to not work correctly
 #endif
                     ++r.pc();
-                    clock(4); // NOTE: Not the c function! See protected part of class definition
+                    clock(4);
+                    // NOTE: Not the c function! See protected part of class
+                    //     definition
                     // How about a syntax like this?
                     // clock(m1);
                 }
@@ -67,7 +73,8 @@ namespace zxtk {
                     ++r.b();
                     // flagaffect (inc,r.b(),254);
                     // ^~~~~~~~~~ any ideas for a better name for this function?
-                    // The 254 is 11111110, or all the flags this instruction affects
+                    // The 254 is 11111110, or all the flags this instruction
+                    //     affects
                     ++r.pc();
                     clock(4);
                     // clock(m1);
@@ -130,7 +137,8 @@ namespace zxtk {
                     ++r.c();
                     // flagaffect (inc,r.c(),254);
                     // ^~~~~~~~~~ any ideas for a better name for this function?
-                    // The 254 is 11111110, or all the flags this instruction affects
+                    // The 254 is 11111110, or all the flags this instruction
+                    //     affects
                     ++r.pc();
                     clock(4);
                     // clock(m1);
@@ -166,7 +174,10 @@ namespace zxtk {
                 R r;
                 M& m;
                 types::cycle diff_cycle (types::cycle, types::cycle) {return 0;} // TODO
-                types::cycle cycle {0}; // NOTE: It feels wrong making this and the next declaration a member of this class (and not its base). Any ideas on how to do this better?
+                types::cycle cycle {0};
+                // NOTE: It feels wrong making this and the next declaration a
+                //     member of this class (and not its base). Any ideas on
+                //     how to do this better?
                 types::cycle mcycle() { /*...*/; return 0;} // TODO
                 void clock(types::cycle i)
                 {
