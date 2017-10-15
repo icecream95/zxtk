@@ -9,17 +9,20 @@
   The types are byte, word, pointer and cycle
  */
 
-namespace zxtk {    // This is a (sort of) standalone utility. Should this be in namespace zxtk? I'm not that sure.
+namespace zxtk {    // This is a (sort of) standalone utility. Should this be in
+                    //     namespace zxtk? I'm not that sure.
     struct types { // NOTE: This is a fake namespace
         struct names {
             const static std::string byte_name() {return "@ZXTK_TYPES_BYTE@";}
             const static std::string word_name() {return "@ZXTK_TYPES_WORD@";}
-            const static std::string pointer_name() {return "@ZXTK_TYPES_POINTER@";}
+            const static std::string pointer_name() {return
+                    "@ZXTK_TYPES_POINTER@";}
             const static std::string cycle_name() {return "@ZXTK_TYPES_CYCLE@";}
             private:
                 names() = delete;
         };
-        // oops! Just realised all these types start with a lowercase. I like lowercase better though
+        // oops! Just realised all these types start with a lowercase. I like
+        //     lowercase better though
         using byte = @ZXTK_TYPES_BYTE@;
         using word = @ZXTK_TYPES_WORD@;
         using pointer = @ZXTK_TYPES_POINTER@;
